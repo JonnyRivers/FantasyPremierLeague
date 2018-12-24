@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace FantasyPermierLeague
+namespace FantasyPremierLeague
 {
     public class Phase
     {

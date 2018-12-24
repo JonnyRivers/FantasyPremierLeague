@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 
-namespace FantasyPermierLeague
+namespace FantasyPremierLeague
 {
     public class Element
     {

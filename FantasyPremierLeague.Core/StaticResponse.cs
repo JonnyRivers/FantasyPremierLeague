@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace FantasyPermierLeague
+namespace FantasyPremierLeague
 {
     public class StaticResponse
     {
