@@ -11,5 +11,7 @@ namespace FantasyPremierLeague
         public IEnumerable<Element> Elements { get; set; }
         [JsonProperty("teams")]
         public IEnumerable<Team> Teams { get; set; }
+        [JsonProperty("current-event")]
+        public int CurrentEvent { get; set; }
     }
 }
