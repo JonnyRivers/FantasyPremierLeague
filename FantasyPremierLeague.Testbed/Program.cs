@@ -11,8 +11,8 @@ namespace FantasyPremierLeague.Testbed
             var fplWebApiClient = new WebApiClient();
             StaticResponse staticResponse = fplWebApiClient.GetStaticAsync().Result;
 
-            List<Player> players = new List<Player>();
-            double minimumMinutesRatio = 0.3d;
+            var players = new List<Player>();
+            double minimumMinutesRatio = 0.75d;
             double totalMinutes = staticResponse.CurrentEvent * 90;
             int minimumMinutes = (int)(minimumMinutesRatio * totalMinutes);
             foreach (Element element in staticResponse.Elements.Where(e => e.Minutes >= minimumMinutes))
@@ -29,26 +29,35 @@ namespace FantasyPremierLeague.Testbed
             }
 
             Console.WriteLine("Players by ICT per minute played");
+            Console.WriteLine("********************************");
+            int rank = 1;
             foreach (Player player in players.OrderByDescending(p => p.IctIndexPerMinutePlayed).Take(25))
             {
-                Console.WriteLine($"{player.Name} ICT per minute played {player.IctIndexPerMinutePlayed:N3}");
+                Console.WriteLine($"{rank++}. {player.Name} ({player.NowCost:N1}m) ICT per minute played {player.IctIndexPerMinutePlayed:N3}");
             }
             Console.WriteLine();
 
             Console.WriteLine("Players by ICT per minute played per cost");
+            Console.WriteLine("*****************************************");
+            rank = 1;
             foreach (Player player in players.OrderByDescending(p => p.IctIndexPerMinutePlayedPerCost).Take(25))
             {
-                Console.WriteLine($"{player.Name} ICT per minute played per cost {player.IctIndexPerMinutePlayedPerCost:N3}");
+                Console.WriteLine($"{rank++}. {player.Name} ({player.NowCost:N1}m) ICT per minute played per cost {player.IctIndexPerMinutePlayedPerCost:N3}");
             }
             Console.WriteLine();
 
-            int newcastleTeamId = staticResponse.Teams.Single(t => t.Name == "Newcastle").Id;
-            Console.WriteLine("Newcastle players by ICT per minute played");
-            foreach (Player player in players.Where(p => p.TeamId == newcastleTeamId).OrderByDescending(p => p.IctIndexPerMinutePlayed))
+            foreach(Team team in staticResponse.Teams)
             {
-                Console.WriteLine($"{player.Name} ICT per minute played {player.IctIndexPerMinutePlayed:N3}");
+                Console.WriteLine($"{team.Name} players by ICT per minute played");
+                Console.WriteLine("********************************************************");
+                rank = 1;
+                foreach (Player player in players.Where(p => p.TeamId == team.Id).OrderByDescending(p => p.IctIndexPerMinutePlayed))
+                {
+                    Console.WriteLine($"{rank++}. {player.Name} ({player.NowCost:N1}m) ICT per minute played {player.IctIndexPerMinutePlayed:N3}");
+                }
+                Console.WriteLine();
             }
-            Console.WriteLine();
+            
         }
     }
 }
