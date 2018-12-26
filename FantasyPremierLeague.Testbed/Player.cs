@@ -6,6 +6,7 @@
         public int MinutesPlayed { get; set; }
         public double IctIndex { get; set; }
         public double NowCost { get; set; }
+        public Position Position { get; set; }
         public int TeamId { get; set; }
 
         public double IctIndexPerMinutePlayed { get { return IctIndex / MinutesPlayed; } }
