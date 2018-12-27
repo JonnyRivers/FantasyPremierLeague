@@ -4,6 +4,7 @@
     {
         public string Name { get; set; }
         public int MinutesPlayed { get; set; }
+        public int TotalPoints { get; set; }
         public double IctIndex { get; set; }
         public double NowCost { get; set; }
         public Position Position { get; set; }
