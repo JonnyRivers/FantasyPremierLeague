@@ -54,7 +54,7 @@ namespace FantasyPremierLeague.Testbed
                     .Where(p => p.Team.Id == team.Id)
                     .OrderByDescending(p => p.IctIndexPerMinutePlayed))
                 {
-                    Console.WriteLine($"{rank++}. {player.Name} ({player.NowCost:N1}m) ICT per minute played {player.IctIndexPerMinutePlayed:N3}");
+                    Console.WriteLine($"{rank++}. {player.Name} ({player.NowCost:N1}m): {player.IctIndexPerMinutePlayed:N3} ({player.MinutesPlayed} minutes played)");
                 }
                 Console.WriteLine();
             }
