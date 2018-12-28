@@ -8,7 +8,6 @@ namespace FantasyPremierLeague
     {
         private const string StaticRequestUri = "https://fantasy.premierleague.com/drf/bootstrap-static";
         private const string ElementDetailRequestBaseUri = "https://fantasy.premierleague.com/drf/element-summary/";
-        private const string TeamRequestBaseUri = "https://fantasy.premierleague.com/drf/my-team/";
 
         public async Task<StaticResponse> GetStaticAsync()
         {
@@ -46,11 +45,13 @@ namespace FantasyPremierLeague
             }
         }
 
-        public async Task<TeamResponse> GetTeamAsync(int id)
+        public async Task<TeamResponse> GetTeamAsync(int id, int eventNumber)
         {
             using (var httpClient = new HttpClient())
             {
-                HttpResponseMessage httpResponseMessage = await httpClient.GetAsync(TeamRequestBaseUri + $"{id}");
+                // TODO https://fantasy.premierleague.com/drf/entry/2042915/event/19/picks
+                HttpResponseMessage httpResponseMessage = await httpClient.GetAsync(
+                    $"https://fantasy.premierleague.com/drf/entry/{id}/event/{eventNumber}/picks");
                 if (!httpResponseMessage.IsSuccessStatusCode)
                 {
                     throw new HttpRequestException(

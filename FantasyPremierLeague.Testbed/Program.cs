@@ -99,15 +99,15 @@ namespace FantasyPremierLeague.Testbed
         static async Task Main(string[] args)
         {
             var fplWebApiClient = new WebApiClient();
+
+            StaticResponse staticResponse = await fplWebApiClient.GetStaticAsync();
+
             //int myTeamId = 2042915;
-            //Task<TeamResponse> teamResponseTask = fplWebApiClient.GetTeamAsync(myTeamId);
-            Task<StaticResponse> staticResponseTask = fplWebApiClient.GetStaticAsync();
-            
-            //TeamResponse teamResponse = await teamResponseTask;
-            StaticResponse staticResponse = await staticResponseTask;
+            //TeamResponse teamResponse = await fplWebApiClient.GetTeamAsync(
+            //    myTeamId,
+            //    staticResponse.CurrentEvent);
 
             var players = new List<Player>();
-            
             foreach (Element element in staticResponse.Elements)
             {
                 var player = new Player
