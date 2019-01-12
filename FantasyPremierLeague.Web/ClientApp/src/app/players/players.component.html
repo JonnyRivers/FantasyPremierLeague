@@ -1,0 +1,32 @@
+<h1>Players</h1>
+
+<p *ngIf="!players"><em>Loading...</em></p>
+
+<table class='table' *ngIf="players">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Points</th>
+      <th>Current Price</th>
+      <th>Minutes Played</th>
+      <th>Goals</th>
+      <th>Assists</th>
+      <th>Conceded</th>
+      <th>Clean Sheets</th>
+      <th>ICT Index</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let player of players">
+      <td>{{ player.name }}</td>
+      <td>{{ player.points }}</td>
+      <td>{{ player.nowCost }}</td>
+      <td>{{ player.minutesPlayed }}</td>
+      <td>{{ player.goals }}</td>
+      <td>{{ player.assists }}</td>
+      <td>{{ player.conceded }}</td>
+      <td>{{ player.cleanSheets }}</td>
+      <td>{{ player.ictIndex }}</td>
+    </tr>
+  </tbody>
+</table>
