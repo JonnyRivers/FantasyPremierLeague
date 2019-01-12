@@ -2,22 +2,22 @@
 
 <p *ngIf="!players"><em>Loading...</em></p>
 
-<table class='table' *ngIf="players">
+<table matSort (matSortChange)="sortData($event)" class='table' *ngIf="players">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Points</th>
-      <th>Current Price</th>
-      <th>Minutes Played</th>
-      <th>Goals</th>
-      <th>Assists</th>
-      <th>Conceded</th>
-      <th>Clean Sheets</th>
-      <th>ICT Index</th>
+      <th mat-sort-header="name">Name</th>
+      <th mat-sort-header="points">Points</th>
+      <th mat-sort-header="nowCost">Current Price</th>
+      <th mat-sort-header="minutesPlayed">Minutes Played</th>
+      <th mat-sort-header="goals">Goals</th>
+      <th mat-sort-header="assists">Assists</th>
+      <th mat-sort-header="conceded">Conceded</th>
+      <th mat-sort-header="cleanSheets">Clean Sheets</th>
+      <th mat-sort-header="ictIndex">ICT Index</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let player of players">
+    <tr *ngFor="let player of sortedPlayers">
       <td>{{ player.name }}</td>
       <td>{{ player.points }}</td>
       <td>{{ player.nowCost }}</td>

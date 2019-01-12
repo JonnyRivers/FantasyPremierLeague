@@ -18,7 +18,7 @@ namespace FantasyPremierLeague.Web.Controllers
             return Json(players);
         }
 
-        private static Player GetPlayerFromElement(FantasyPremierLeague.Element element)
+        private static Player GetPlayerFromElement(Element element)
         {
             return new Player
             {
