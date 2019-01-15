@@ -1,32 +1,60 @@
-<h1>Players</h1>
+<div class="example-container mat-elevation-z8">
+  <mat-table #table [dataSource]="dataSource" matSort>
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    </ng-container>
 
-<p *ngIf="!players"><em>Loading...</em></p>
+    <!-- Points Column -->
+    <ng-container matColumnDef="points">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Points </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.points}} </mat-cell>
+    </ng-container>
 
-<table matSort (matSortChange)="sortData($event)" class='table' *ngIf="players">
-  <thead>
-    <tr>
-      <th mat-sort-header="name">Name</th>
-      <th mat-sort-header="points">Points</th>
-      <th mat-sort-header="nowCost">Current Price</th>
-      <th mat-sort-header="minutesPlayed">Minutes Played</th>
-      <th mat-sort-header="goals">Goals</th>
-      <th mat-sort-header="assists">Assists</th>
-      <th mat-sort-header="conceded">Conceded</th>
-      <th mat-sort-header="cleanSheets">Clean Sheets</th>
-      <th mat-sort-header="ictIndex">ICT Index</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let player of sortedPlayers">
-      <td>{{ player.name }}</td>
-      <td>{{ player.points }}</td>
-      <td>{{ player.nowCost }}</td>
-      <td>{{ player.minutesPlayed }}</td>
-      <td>{{ player.goals }}</td>
-      <td>{{ player.assists }}</td>
-      <td>{{ player.conceded }}</td>
-      <td>{{ player.cleanSheets }}</td>
-      <td>{{ player.ictIndex }}</td>
-    </tr>
-  </tbody>
-</table>
+    <!-- Cost Column -->
+    <ng-container matColumnDef="nowCost">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Cost (m) </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.nowCost}} </mat-cell>
+    </ng-container>
+
+    <!-- Minutes Played Column -->
+    <ng-container matColumnDef="minutesPlayed">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Minutes Played </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.minutesPlayed}} </mat-cell>
+    </ng-container>
+
+    <!-- Goals Column -->
+    <ng-container matColumnDef="goals">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Goals </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.goals}} </mat-cell>
+    </ng-container>
+
+    <!-- Assists Column -->
+    <ng-container matColumnDef="assists">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Assists </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.assists}} </mat-cell>
+    </ng-container>
+
+    <!-- Conceded Column -->
+    <ng-container matColumnDef="conceded">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Conceded </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.conceded}} </mat-cell>
+    </ng-container>
+
+    <!-- Clean Sheets Column -->
+    <ng-container matColumnDef="cleanSheets">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Clean Sheets </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.cleanSheets}} </mat-cell>
+    </ng-container>
+
+    <!-- ICT Index Column -->
+    <ng-container matColumnDef="ictIndex">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> ICT Index </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.ictIndex}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>

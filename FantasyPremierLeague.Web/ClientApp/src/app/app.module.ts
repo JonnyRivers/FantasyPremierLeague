@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-import { MatButtonModule, MatCheckboxModule, MatTableModule } from '@angular/material';
+import { MatTableModule } from '@angular/material';
 import { MatSortModule } from '@angular/material/sort';
 
 import { AppComponent } from './app.component';
@@ -24,8 +24,6 @@ import { PlayersComponent } from './players/players.component';
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
-    MatButtonModule,
-    MatCheckboxModule,
     MatSortModule,
     MatTableModule,
     RouterModule.forRoot([
