@@ -1,4 +1,13 @@
 <div class="example-container mat-elevation-z8">
+  <h4>Position</h4>
+  <mat-form-field>
+    <mat-select [(value)]="selectedPosition">
+      <mat-option *ngFor="let position of positions" [value]="position.value">
+        {{position.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
   <mat-table #table [dataSource]="dataSource" matSort>
     <!-- Name Column -->
     <ng-container matColumnDef="name">

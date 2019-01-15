@@ -5,6 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { MatTableModule } from '@angular/material';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
 import { MatSortModule } from '@angular/material/sort';
 
 import { AppComponent } from './app.component';
@@ -24,6 +26,8 @@ import { PlayersComponent } from './players/players.component';
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
+    MatFormFieldModule,
+    MatSelectModule,
     MatSortModule,
     MatTableModule,
     RouterModule.forRoot([

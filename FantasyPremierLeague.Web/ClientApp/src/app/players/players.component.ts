@@ -15,12 +15,26 @@ export interface Player {
   ictIndex: number;
 }
 
+export interface Position {
+  value: string;
+  viewValue: string;
+}
+
 @Component({
   selector: 'app-players',
   templateUrl: './players.component.html',
   styleUrls: ['./players.component.css']
 })
 export class PlayersComponent {
+  positions: Position[] = [
+    { value: 'all-0', viewValue: '(All Positions)' },
+    { value: 'goalkeepers-1', viewValue: 'Goalkeepers' },
+    { value: 'defenders-2', viewValue: 'Defenders' },
+    { value: 'midfielders-3', viewValue: 'Midfielders' },
+    { value: 'forwards-4', viewValue: 'Forwards' }
+  ];
+  selectedPosition: Position = this.positions[0].value;
+
   public players: Player[];
   dataSource: MatTableDataSource<Player>;
   displayedColumns: string[] = [
