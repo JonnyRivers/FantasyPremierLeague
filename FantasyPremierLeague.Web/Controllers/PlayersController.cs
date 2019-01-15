@@ -14,16 +14,32 @@ namespace FantasyPremierLeague.Web.Controllers
         {
             var fplApiClient = new WebApiClient();
             StaticResponse staticResponse = await fplApiClient.GetStaticAsync();
-            IEnumerable<Player> players = staticResponse.Elements.Select(GetPlayerFromElement);
+            var positionsById = new Dictionary<int, string>
+            {
+                {1, "Goalkeeper" },
+                {2, "Defender" },
+                {3, "Midfielder" },
+                {4, "Forward" }
+            };
+            Dictionary<int, string> teamNamesById = staticResponse.Teams.ToDictionary(
+                t => t.Id,
+                t => t.Name);
+            IEnumerable<Player> players = staticResponse.Elements.Select(
+                e => GetPlayerFromElement(e, positionsById, teamNamesById));
             return Json(players);
         }
 
-        private static Player GetPlayerFromElement(Element element)
+        private static Player GetPlayerFromElement(
+            Element element, 
+            Dictionary<int, string> positionsById, 
+            Dictionary<int, string> teamNamesById)
         {
             return new Player
             {
                 Id = element.Id,
-                Name = $"{element.FirstName} {element.WebName}",
+                Name = (element.WebName == element.SecondName) ? $"{element.FirstName} {element.SecondName}" : element.WebName,
+                Position = positionsById[element.ElementType],
+                Team = teamNamesById[element.Team],
                 Points = element.TotalPoints,
                 NowCost = (float)Math.Round(element.NowCost * 0.1d, 1),
                 MinutesPlayed = element.Minutes,

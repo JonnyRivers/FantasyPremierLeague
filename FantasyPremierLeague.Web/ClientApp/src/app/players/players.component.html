@@ -6,6 +6,18 @@
       <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
     </ng-container>
 
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Position </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+    </ng-container>
+
+    <!-- Team Column -->
+    <ng-container matColumnDef="team">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Team </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.team}} </mat-cell>
+    </ng-container>
+
     <!-- Points Column -->
     <ng-container matColumnDef="points">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Points </mat-header-cell>

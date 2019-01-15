@@ -25,6 +25,8 @@ export class PlayersComponent {
   dataSource: MatTableDataSource<Player>;
   displayedColumns: string[] = [
     'name',
+    'position',
+    'team',
     'points',
     'nowCost',
     'minutesPlayed',
