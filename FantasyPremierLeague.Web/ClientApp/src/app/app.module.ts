@@ -5,7 +5,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { MatTableModule } from '@angular/material';
+import { MatIconModule } from '@angular/material/icon';
 import { MatSortModule } from '@angular/material/sort';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
@@ -24,8 +26,10 @@ import { PlayersComponent } from './players/players.component';
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
+    MatIconModule,
     MatSortModule,
     MatTableModule,
+    MatToolbarModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'players', component: PlayersComponent },
