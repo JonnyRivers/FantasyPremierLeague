@@ -6,22 +6,10 @@
       <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
     </ng-container>
 
-    <!-- Position Column -->
-    <ng-container matColumnDef="position">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Position </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
-    </ng-container>
-
     <!-- Team Column -->
     <ng-container matColumnDef="team">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Team </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.team}} </mat-cell>
-    </ng-container>
-
-    <!-- Points Column -->
-    <ng-container matColumnDef="points">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Points </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.points}} </mat-cell>
     </ng-container>
 
     <!-- Cost Column -->
@@ -36,34 +24,40 @@
       <mat-cell *matCellDef="let element"> {{element.minutesPlayed}} </mat-cell>
     </ng-container>
 
-    <!-- Goals Column -->
-    <ng-container matColumnDef="goals">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Goals </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.goals}} </mat-cell>
+    <!-- Points Column -->
+    <ng-container matColumnDef="points">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Points </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.points}} </mat-cell>
     </ng-container>
 
-    <!-- Assists Column -->
-    <ng-container matColumnDef="assists">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Assists </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.assists}} </mat-cell>
+    <!-- Points Per Minute Played Column -->
+    <ng-container matColumnDef="pointsPerMinutePlayed">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Pts/Min </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.pointsPerMinutePlayed}} </mat-cell>
     </ng-container>
 
-    <!-- Conceded Column -->
-    <ng-container matColumnDef="conceded">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Conceded </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.conceded}} </mat-cell>
-    </ng-container>
-
-    <!-- Clean Sheets Column -->
-    <ng-container matColumnDef="cleanSheets">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Clean Sheets </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.cleanSheets}} </mat-cell>
+    <!-- Points Per Minute Played Per Now Cost Column -->
+    <ng-container matColumnDef="pointsPerMinutePlayedPerNowCost">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Pts/Min/Cost </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.pointsPerMinutePlayedPerNowCost}} </mat-cell>
     </ng-container>
 
     <!-- ICT Index Column -->
     <ng-container matColumnDef="ictIndex">
       <mat-header-cell *matHeaderCellDef mat-sort-header> ICT Index </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.ictIndex}} </mat-cell>
+    </ng-container>
+
+    <!-- ICT Index Per Minute Played Column -->
+    <ng-container matColumnDef="ictIndexPerMinutePlayed">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> ICT/Min </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.ictIndexPerMinutePlayed}} </mat-cell>
+    </ng-container>
+
+    <!-- ICT Index Per Minute Played Per Now Cost Column -->
+    <ng-container matColumnDef="ictIndexPerMinutePlayedPerNowCost">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> ICT/Min/Cost </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.ictIndexPerMinutePlayedPerNowCost}} </mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

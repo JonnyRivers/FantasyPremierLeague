@@ -5,11 +5,11 @@ import { HttpClient } from '@angular/common/http';
 import { Player } from '../player';
 
 @Component({
-  selector: 'app-forwards',
-  templateUrl: './forwards.component.html',
-  styleUrls: ['./forwards.component.css']
+  selector: 'app-defenders',
+  templateUrl: './defenders.component.html',
+  styleUrls: ['./defenders.component.css']
 })
-export class ForwardsComponent {
+export class DefendersComponent {
   public players: Player[];
   dataSource: MatTableDataSource<Player>;
   displayedColumns: string[] = [
@@ -27,7 +27,7 @@ export class ForwardsComponent {
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    http.get<Player[]>(baseUrl + 'api/forwards').subscribe(result => {
+    http.get<Player[]>(baseUrl + 'api/defenders').subscribe(result => {
       this.players = result;
       this.dataSource = new MatTableDataSource(this.players);
       this.dataSource.sort = this.sort;

@@ -3,12 +3,28 @@
     <button mat-raised-button
             [routerLink]='["/"]'
             [routerLinkActive]='["mat-accent"]'
-            [routerLinkActiveOptions]='{ exact: true }'>Home</button>
+            [routerLinkActiveOptions]='{ exact: true }'>
+      Home
+    </button>
     <button mat-raised-button
-            [routerLink]='["/players"]'
-            [routerLinkActive]='["mat-accent"]'>Players</button>
+            [routerLink]='["/goalkeepers"]'
+            [routerLinkActive]='["mat-accent"]'>
+      Goalkeepers
+    </button>
+    <button mat-raised-button
+            [routerLink]='["/defenders"]'
+            [routerLinkActive]='["mat-accent"]'>
+      Defenders
+    </button>
+    <button mat-raised-button
+            [routerLink]='["/midfielders"]'
+            [routerLinkActive]='["mat-accent"]'>
+      Midfielders
+    </button>
     <button mat-raised-button
             [routerLink]='["/forwards"]'
-            [routerLinkActive]='["mat-accent"]'>Forwards</button>
+            [routerLinkActive]='["mat-accent"]'>
+      Forwards
+    </button>
   </mat-toolbar-row>
 </mat-toolbar>

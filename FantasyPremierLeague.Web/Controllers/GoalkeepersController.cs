@@ -8,13 +8,13 @@ namespace FantasyPremierLeague.Web.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ForwardsController : Controller
+    public class GoalkeepersController : Controller
     {
         public async Task<IActionResult> Index()
         {
             var fplService = new FplService();
-            IEnumerable<Player> forwards = await fplService.GetForwardsAsync();
-            return Json(forwards);
+            IEnumerable<Player> goalkeepers = await fplService.GetGoalkeepersAsync();
+            return Json(goalkeepers);
         }
     }
 }
