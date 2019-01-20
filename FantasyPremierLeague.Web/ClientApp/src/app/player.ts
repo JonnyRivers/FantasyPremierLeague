@@ -7,12 +7,19 @@ export interface Player {
   minutesPlayed: number;
   goals: number;
   assists: number;
+  saves: number;
+  savesPerNinety: number;
+  savesPerNinetyPerNowCost: number;
   conceded: number;
+  concededPerNinety: number;
+  concededPerNinetyPerNowCost: number;
   cleanSheets: number;
+  cleanSheetsPerNinety: number;
+  cleanSheetsPerNinetyPerNowCost: number;
   points: number;
-  pointsPerMinutePlayed: number;
-  pointsPerMinutePlayedPerNowCost: number;
+  pointsPerNinety: number;
+  pointsPerNinetyPerNowCost: number;
   ictIndex: number;
-  ictIndexPerMinutePlayed: number;
-  ictIndexPerMinutePlayedPerNowCost: number;
+  ictIndexPerNinety: number;
+  ictIndexPerNinetyPerNowCost: number;
 }

@@ -18,11 +18,17 @@ export class GoalkeepersComponent {
     'nowCost',
     'minutesPlayed',
     'points',
-    'pointsPerMinutePlayed',
-    'pointsPerMinutePlayedPerNowCost',
-    'ictIndex',
-    'ictIndexPerMinutePlayed',
-    'ictIndexPerMinutePlayedPerNowCost',
+    'pointsPerNinety',
+    'pointsPerNinetyPerNowCost',
+    'saves',
+    'savesPerNinety',
+    'savesPerNinetyPerNowCost',
+    'conceded',
+    'concededPerNinety',
+    'concededPerNinetyPerNowCost',
+    'cleanSheets',
+    'cleanSheetsPerNinety',
+    'cleanSheetsPerNinetyPerNowCost',
   ];
   @ViewChild(MatSort) sort: MatSort;
 

@@ -18,11 +18,14 @@ export class MidfieldersComponent {
     'nowCost',
     'minutesPlayed',
     'points',
-    'pointsPerMinutePlayed',
-    'pointsPerMinutePlayedPerNowCost',
+    'pointsPerNinety',
+    'pointsPerNinetyPerNowCost',
     'ictIndex',
-    'ictIndexPerMinutePlayed',
-    'ictIndexPerMinutePlayedPerNowCost',
+    'ictIndexPerNinety',
+    'ictIndexPerNinetyPerNowCost',
+    'cleanSheets',
+    'cleanSheetsPerNinety',
+    'cleanSheetsPerNinetyPerNowCost',
   ];
   @ViewChild(MatSort) sort: MatSort;
 

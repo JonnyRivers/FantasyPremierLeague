@@ -18,11 +18,11 @@ export class ForwardsComponent {
     'nowCost',
     'minutesPlayed',
     'points',
-    'pointsPerMinutePlayed',
-    'pointsPerMinutePlayedPerNowCost',
+    'pointsPerNinety',
+    'pointsPerNinetyPerNowCost',
     'ictIndex',
-    'ictIndexPerMinutePlayed',
-    'ictIndexPerMinutePlayedPerNowCost',
+    'ictIndexPerNinety',
+    'ictIndexPerNinetyPerNowCost',
   ];
   @ViewChild(MatSort) sort: MatSort;
 

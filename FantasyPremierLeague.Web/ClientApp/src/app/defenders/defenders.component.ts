@@ -18,11 +18,17 @@ export class DefendersComponent {
     'nowCost',
     'minutesPlayed',
     'points',
-    'pointsPerMinutePlayed',
-    'pointsPerMinutePlayedPerNowCost',
+    'pointsPerNinety',
+    'pointsPerNinetyPerNowCost',
     'ictIndex',
-    'ictIndexPerMinutePlayed',
-    'ictIndexPerMinutePlayedPerNowCost',
+    'ictIndexPerNinety',
+    'ictIndexPerNinetyPerNowCost',
+    'conceded',
+    'concededPerNinety',
+    'concededPerNinetyPerNowCost',
+    'cleanSheets',
+    'cleanSheetsPerNinety',
+    'cleanSheetsPerNinetyPerNowCost',
   ];
   @ViewChild(MatSort) sort: MatSort;
 

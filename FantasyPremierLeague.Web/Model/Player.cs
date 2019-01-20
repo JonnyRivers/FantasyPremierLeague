@@ -13,27 +13,44 @@ namespace FantasyPremierLeague.Web.Model
         public int MinutesPlayed { get; set; }
         public int Goals { get; set; }
         public int Assists { get; set; }
+        public int Saves { get; set; }
+        public float SavesPerNinety { get; set; }
+        public float SavesPerNinetyPerNowCost { get; set; }
         public int Conceded { get; set; }
+        public float ConcededPerNinety { get; set; }
+        public float ConcededPerNinetyPerNowCost { get; set; }
         public int CleanSheets { get; set; }
+        public float CleanSheetsPerNinety { get; set; }
+        public float CleanSheetsPerNinetyPerNowCost { get; set; }
         public int Points { get; set; }
-        public float PointsPerMinutePlayed { get; set; }
-        public float PointsPerMinutePlayedPerNowCost { get; set; }
+        public float PointsPerNinety { get; set; }
+        public float PointsPerNinetyPerNowCost { get; set; }
         public float IctIndex { get; set; }
-        public float IctIndexPerMinutePlayed { get; set; }
-        public float IctIndexPerMinutePlayedPerNowCost { get; set; }
+        public float IctIndexPerNinety { get; set; }
+        public float IctIndexPerNinetyPerNowCost { get; set; }
 
         internal static Player FromElement(
             Element element,
             Dictionary<int, string> teamNamesById)
         {
             float minutes = element.Minutes;
+            float nineties = minutes / 90;
             float nowCost = (float)Math.Round(element.NowCost * 0.1d, 1);
+            float saves = element.Saves;
+            float savesPerNinety = minutes > 0 ? saves / nineties : 0;
+            float savesPerNinetyPerNowCost = savesPerNinety / nowCost;
+            float conceded = element.GoalsConceded;
+            float concededPerNinety = minutes > 0 ? conceded / nineties : 0;
+            float concededPerNinetyPerNowCost = concededPerNinety / nowCost;
+            float cleanSheets = element.CleanSheets;
+            float cleanSheetsPerNinety = minutes > 0 ? cleanSheets / nineties : 0;
+            float cleanSheetsPerNinetyPerNowCost = cleanSheetsPerNinety / nowCost;
             float points = element.TotalPoints;
-            float pointsPerMinutePlayed = minutes > 0 ? points / minutes : 0;
-            float pointsPerMinutePlayedPerNowCost = pointsPerMinutePlayed / nowCost;
+            float pointsPerNinety = minutes > 0 ? points / nineties : 0;
+            float pointsPerNinetyPerNowCost = pointsPerNinety / nowCost;
             float ictIndex = float.Parse(element.IctIndex);
-            float ictIndexPerMinutePlayed = minutes > 0 ? ictIndex / minutes : 0;
-            float ictIndexPerMinutePlayedPerNowCost = ictIndexPerMinutePlayed / nowCost;
+            float ictIndexPerNinety = minutes > 0 ? ictIndex / nineties : 0;
+            float ictIndexPerNinetyPerNowCost = ictIndexPerNinety / nowCost;
             return new Player
             {
                 Id = element.Id,
@@ -44,14 +61,21 @@ namespace FantasyPremierLeague.Web.Model
                 MinutesPlayed = element.Minutes,
                 Goals = element.GoalsScored,
                 Assists = element.Assists,
+                Saves = element.Saves,
+                SavesPerNinety = (float)Math.Round(savesPerNinety, 2),
+                SavesPerNinetyPerNowCost = (float)Math.Round(savesPerNinetyPerNowCost, 3),
                 Conceded = element.GoalsConceded,
+                ConcededPerNinety = (float)Math.Round(concededPerNinety, 2),
+                ConcededPerNinetyPerNowCost = (float)Math.Round(concededPerNinetyPerNowCost, 3),
                 CleanSheets = element.CleanSheets,
+                CleanSheetsPerNinety = (float)Math.Round(cleanSheetsPerNinety, 2),
+                CleanSheetsPerNinetyPerNowCost = (float)Math.Round(cleanSheetsPerNinetyPerNowCost, 3),
                 Points = element.TotalPoints,
-                PointsPerMinutePlayed = (float)Math.Round(pointsPerMinutePlayed, 3),
-                PointsPerMinutePlayedPerNowCost = (float)Math.Round(pointsPerMinutePlayedPerNowCost, 4),
+                PointsPerNinety = (float)Math.Round(pointsPerNinety, 2),
+                PointsPerNinetyPerNowCost = (float)Math.Round(pointsPerNinetyPerNowCost, 3),
                 IctIndex = ictIndex,
-                IctIndexPerMinutePlayed = (float)Math.Round(ictIndexPerMinutePlayed, 3),
-                IctIndexPerMinutePlayedPerNowCost = (float)Math.Round(ictIndexPerMinutePlayedPerNowCost, 4)
+                IctIndexPerNinety = (float)Math.Round(ictIndexPerNinety, 1),
+                IctIndexPerNinetyPerNowCost = (float)Math.Round(ictIndexPerNinetyPerNowCost, 2)
             };
         }
     }

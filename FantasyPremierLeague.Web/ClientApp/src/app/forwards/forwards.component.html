@@ -30,16 +30,16 @@
       <mat-cell *matCellDef="let element"> {{element.points}} </mat-cell>
     </ng-container>
 
-    <!-- Points Per Minute Played Column -->
-    <ng-container matColumnDef="pointsPerMinutePlayed">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Pts/Min </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.pointsPerMinutePlayed}} </mat-cell>
+    <!-- Points Per 90 Column -->
+    <ng-container matColumnDef="pointsPerNinety">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Pts/90 </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.pointsPerNinety}} </mat-cell>
     </ng-container>
 
-    <!-- Points Per Minute Played Per Now Cost Column -->
-    <ng-container matColumnDef="pointsPerMinutePlayedPerNowCost">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Pts/Min/Cost </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.pointsPerMinutePlayedPerNowCost}} </mat-cell>
+    <!-- Points Per 90 Per Now Cost Column -->
+    <ng-container matColumnDef="pointsPerNinetyPerNowCost">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Pts/90/Cost </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.pointsPerNinetyPerNowCost}} </mat-cell>
     </ng-container>
 
     <!-- ICT Index Column -->
@@ -48,16 +48,16 @@
       <mat-cell *matCellDef="let element"> {{element.ictIndex}} </mat-cell>
     </ng-container>
 
-    <!-- ICT Index Per Minute Played Column -->
-    <ng-container matColumnDef="ictIndexPerMinutePlayed">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> ICT/Min </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.ictIndexPerMinutePlayed}} </mat-cell>
+    <!-- ICT Index Per 90 Column -->
+    <ng-container matColumnDef="ictIndexPerNinety">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> ICT/90 </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.ictIndexPerNinety}} </mat-cell>
     </ng-container>
 
-    <!-- ICT Index Per Minute Played Per Now Cost Column -->
-    <ng-container matColumnDef="ictIndexPerMinutePlayedPerNowCost">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> ICT/Min/Cost </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.ictIndexPerMinutePlayedPerNowCost}} </mat-cell>
+    <!-- ICT Index Per 90 Per Now Cost Column -->
+    <ng-container matColumnDef="ictIndexPerNinetyPerNowCost">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> ICT/90/Cost </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.ictIndexPerNinetyPerNowCost}} </mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
