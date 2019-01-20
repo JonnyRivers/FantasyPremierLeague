@@ -13,7 +13,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
-import { PlayersComponent } from './players/players.component';
+import { GoalkeepersComponent } from './goalkeepers/goalkeepers.component';
+import { DefendersComponent } from './defenders/defenders.component';
+import { MidfieldersComponent } from './midfielders/midfielders.component';
 import { ForwardsComponent } from './forwards/forwards.component';
 
 @NgModule({
@@ -21,8 +23,10 @@ import { ForwardsComponent } from './forwards/forwards.component';
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    PlayersComponent,
-    ForwardsComponent
+    GoalkeepersComponent,
+    DefendersComponent,
+    MidfieldersComponent,
+    ForwardsComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -36,7 +40,9 @@ import { ForwardsComponent } from './forwards/forwards.component';
     MatToolbarModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'players', component: PlayersComponent },
+      { path: 'goalkeepers', component: GoalkeepersComponent },
+      { path: 'defenders', component: DefendersComponent },
+      { path: 'midfielders', component: MidfieldersComponent },
       { path: 'forwards', component: ForwardsComponent },
     ])
   ],
