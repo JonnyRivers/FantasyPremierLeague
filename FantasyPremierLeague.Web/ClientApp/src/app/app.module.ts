@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { MatTableModule } from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSortModule } from '@angular/material/sort';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -28,6 +29,7 @@ import { ForwardsComponent } from './forwards/forwards.component';
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
+    MatButtonModule,
     MatIconModule,
     MatSortModule,
     MatTableModule,

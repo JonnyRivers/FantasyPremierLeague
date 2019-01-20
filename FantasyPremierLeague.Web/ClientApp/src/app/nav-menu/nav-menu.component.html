@@ -1,16 +1,14 @@
-<!--<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">-->
-
-<mat-toolbar color="primary">
+<mat-toolbar>
   <mat-toolbar-row>
-    <a [routerLink]='["/"]' (click)='collapse()'>
-      <span class="navbar-link">Home</span>
-    </a>
-    <a [routerLink]='["/players"]' (click)='collapse()'>
-      <span class="navbar-link">Players</span>
-    </a>
-    <a [routerLink]='["/forwards"]' (click)='collapse()'>
-      <span class="navbar-link">Forwards</span>
-    </a>
+    <button mat-raised-button
+            [routerLink]='["/"]'
+            [routerLinkActive]='["mat-accent"]'
+            [routerLinkActiveOptions]='{ exact: true }'>Home</button>
+    <button mat-raised-button
+            [routerLink]='["/players"]'
+            [routerLinkActive]='["mat-accent"]'>Players</button>
+    <button mat-raised-button
+            [routerLink]='["/forwards"]'
+            [routerLinkActive]='["mat-accent"]'>Forwards</button>
   </mat-toolbar-row>
 </mat-toolbar>
