@@ -13,13 +13,15 @@ import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { PlayersComponent } from './players/players.component';
+import { ForwardsComponent } from './forwards/forwards.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    PlayersComponent
+    PlayersComponent,
+    ForwardsComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -33,6 +35,7 @@ import { PlayersComponent } from './players/players.component';
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'players', component: PlayersComponent },
+      { path: 'forwards', component: ForwardsComponent },
     ])
   ],
   providers: [],

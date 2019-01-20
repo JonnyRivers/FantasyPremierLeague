@@ -1,16 +1,16 @@
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+<!--<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">-->
 
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <span>Fantasy Premier League</span>
-    <!--<span class="example-spacer"></span>-->
-    <mat-icon class="example-icon">user</mat-icon>
     <a [routerLink]='["/"]' (click)='collapse()'>
-      <mat-icon class="example-icon">home</mat-icon>
+      <span class="navbar-link">Home</span>
     </a>
     <a [routerLink]='["/players"]' (click)='collapse()'>
-      <mat-icon class="example-icon">face</mat-icon>
+      <span class="navbar-link">Players</span>
+    </a>
+    <a [routerLink]='["/forwards"]' (click)='collapse()'>
+      <span class="navbar-link">Forwards</span>
     </a>
   </mat-toolbar-row>
 </mat-toolbar>
