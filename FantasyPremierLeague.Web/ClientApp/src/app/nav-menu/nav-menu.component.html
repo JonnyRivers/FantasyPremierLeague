@@ -1,17 +1,16 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Fantasy Premier League</a>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
-        <a [routerLink]='["/"]' (click)='collapse()'>
-          <span class='glyphicon glyphicon-home'></span> Home
-        </a>
-      </li>
-      <li [routerLinkActive]='["link-active"]'>
-        <a [routerLink]='["/players"]' (click)='collapse()'>
-          <span class='glyphicon glyphicon-user'></span> Players
-        </a>
-      </li>
-    </ul>
-  </div>
-</nav>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Fantasy Premier League</span>
+    <!--<span class="example-spacer"></span>-->
+    <mat-icon class="example-icon">user</mat-icon>
+    <a [routerLink]='["/"]' (click)='collapse()'>
+      <mat-icon class="example-icon">home</mat-icon>
+    </a>
+    <a [routerLink]='["/players"]' (click)='collapse()'>
+      <mat-icon class="example-icon">face</mat-icon>
+    </a>
+  </mat-toolbar-row>
+</mat-toolbar>
