@@ -60,17 +60,26 @@ namespace FantasyPremierLeague.Testbed
             }
         }
 
-        static void PrintIctPointsScatter(IEnumerable<Player> players)
+        static void PrintPlayerRows(IEnumerable<Player> players)
         {
-            Console.WriteLine("Player,ICT,Points");
+            Console.WriteLine(
+                "Player," + 
+                "Threat,Goals," + 
+                "Creativity,Assists," + 
+                "Influence,Bonus," + 
+                "ICT,Points");
             foreach (Player player in players)
             {
                 Console.WriteLine(
-                    $"{player.Name},{player.IctIndex:N1},{player.TotalPoints}");
+                    $"{player.Name}," + 
+                    $"{player.Threat},{player.Goals}," + 
+                    $"{player.Creativity},{player.Assists}," + 
+                    $"{player.Influence},{player.Bonus}," + 
+                    $"{player.IctIndex},{player.TotalPoints}");
             }
         }
 
-        static void PrintAllIctPointsScatters(IEnumerable<Player> players, int currentEvent)
+        static void PrintByPositionTable(IEnumerable<Player> players, int currentEvent)
         {
             double minimumMinutesRatio = 0.5d;
             double totalMinutes = currentEvent * 90;
@@ -82,18 +91,28 @@ namespace FantasyPremierLeague.Testbed
 
             Console.WriteLine("Defenders");
             Console.WriteLine("*********");
-            PrintIctPointsScatter(defendersThatPlayedOften);
+            PrintPlayerRows(defendersThatPlayedOften);
             Console.WriteLine();
 
             Console.WriteLine("Midfielders");
             Console.WriteLine("***********");
-            PrintIctPointsScatter(midfieldersThatPlayedOften);
+            PrintPlayerRows(midfieldersThatPlayedOften);
             Console.WriteLine();
 
             Console.WriteLine("Forwards");
             Console.WriteLine("********");
-            PrintIctPointsScatter(forwardsThatPlayedOften);
+            PrintPlayerRows(forwardsThatPlayedOften);
             Console.WriteLine();
+        }
+
+        static async Task PrintAllExpectedPointsAsync(StaticResponse staticResponse)
+        {
+            var expectedPointsService = new ExpectedPointsService();
+
+            // Start with Rondon
+            Element rondon = staticResponse.Elements.Single(e => e.Id == 493);
+            float expectedPoints = await expectedPointsService.CalculateExpectedPointsAsync(rondon);
+            Console.WriteLine($"Expected points: {expectedPoints:N2}");
         }
 
         static async Task Main(string[] args)
@@ -116,6 +135,12 @@ namespace FantasyPremierLeague.Testbed
                     MinutesPlayed = element.Minutes,
                     TotalPoints = element.TotalPoints,
                     IctIndex = double.Parse(element.IctIndex),
+                    Threat = double.Parse(element.Threat),
+                    Goals = element.GoalsScored,
+                    Creativity = double.Parse(element.Creativity),
+                    Assists = element.Assists,
+                    Influence = double.Parse(element.Influence),
+                    Bonus = element.Bonus,
                     NowCost = element.NowCost / 10d,
                     Position = (Position)element.ElementType,
                     Team = staticResponse.Teams.Single(t => t.Id == element.Team)
@@ -133,9 +158,13 @@ namespace FantasyPremierLeague.Testbed
             {
                 PrintTeamIctRankings(players, staticResponse.Teams);
             }
-            else if (command == "ict-points-scatter")
+            else if (command == "by-position-table")
             {
-                PrintAllIctPointsScatters(players, staticResponse.CurrentEvent);
+                PrintByPositionTable(players, staticResponse.CurrentEvent);
+            }
+            else if (command == "expected-points")
+            {
+                await PrintAllExpectedPointsAsync(staticResponse);
             }
         }
     }
