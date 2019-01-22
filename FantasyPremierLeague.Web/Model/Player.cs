@@ -45,7 +45,7 @@ namespace FantasyPremierLeague.Web.Model
         internal static Player FromElement(
             Element element,
             Dictionary<int, string> teamNamesById,
-            ISet<int> pickedElementIds)
+            bool picked)
         {
             float minutes = element.Minutes;
             float nineties = minutes / 90;
@@ -69,7 +69,7 @@ namespace FantasyPremierLeague.Web.Model
             {
                 Id = element.Id,
                 Name = GetElementName(element),
-                Picked = pickedElementIds.Contains(element.Id),
+                Picked = picked,
                 Position = ((ElementType)element.ElementType).ToString(),
                 Team = teamNamesById[element.Team],
                 NowCost = nowCost,

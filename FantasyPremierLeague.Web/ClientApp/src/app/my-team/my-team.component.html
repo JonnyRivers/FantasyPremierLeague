@@ -1,0 +1,67 @@
+<div class="example-container mat-elevation-z8">
+  <mat-table #table [dataSource]="dataSource" matSort>
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    </ng-container>
+
+    <!-- Team Column -->
+    <ng-container matColumnDef="team">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Team </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.team}} </mat-cell>
+    </ng-container>
+
+    <!-- Cost Column -->
+    <ng-container matColumnDef="nowCost">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Cost (m) </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.nowCost}} </mat-cell>
+    </ng-container>
+
+    <!-- Minutes Played Column -->
+    <ng-container matColumnDef="minutesPlayed">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Minutes Played </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.minutesPlayed}} </mat-cell>
+    </ng-container>
+
+    <!-- Points Column -->
+    <ng-container matColumnDef="points">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Points </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.points}} </mat-cell>
+    </ng-container>
+
+    <!-- Points Per 90 Column -->
+    <ng-container matColumnDef="pointsPerNinety">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Pts/90 </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.pointsPerNinety}} </mat-cell>
+    </ng-container>
+
+    <!-- Points Per 90 Per Now Cost Column -->
+    <ng-container matColumnDef="pointsPerNinetyPerNowCost">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Pts/90/Cost </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.pointsPerNinetyPerNowCost}} </mat-cell>
+    </ng-container>
+
+    <!-- ICT Index Column -->
+    <ng-container matColumnDef="ictIndex">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> ICT Index </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.ictIndex}} </mat-cell>
+    </ng-container>
+
+    <!-- ICT Index Per 90 Column -->
+    <ng-container matColumnDef="ictIndexPerNinety">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> ICT/90 </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.ictIndexPerNinety}} </mat-cell>
+    </ng-container>
+
+    <!-- ICT Index Per 90 Per Now Cost Column -->
+    <ng-container matColumnDef="ictIndexPerNinetyPerNowCost">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> ICT/90/Cost </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.ictIndexPerNinetyPerNowCost}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let element; columns: displayedColumns;">
+    </mat-row>
+  </mat-table>
+</div>

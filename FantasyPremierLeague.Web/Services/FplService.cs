@@ -27,7 +27,25 @@ namespace FantasyPremierLeague.Web.Services
                 .Where(e => e.ElementType == (int)elementType)
                 .Where(e => e.Minutes >= minimumMinutesPlayed);
             IEnumerable<Player> players = elements.Select(
-                e => Player.FromElement(e, teamNamesById, pickedElementIds));
+                e => Player.FromElement(e, teamNamesById, pickedElementIds.Contains(e.Id)));
+
+            return players;
+        }
+
+        public async Task<IEnumerable<Player>> GetPickedPlayersAsync()
+        {
+            var fplApiClient = new WebApiClient();
+            StaticResponse staticResponse = await fplApiClient.GetStaticAsync();
+
+            TeamResponse teamResponse = await fplApiClient.GetTeamAsync(MyTeamId, staticResponse.CurrentEvent);
+            var pickedElementIds = new HashSet<int>(teamResponse.Picks.Select(p => p.ElementId));
+
+            Dictionary<int, string> teamNamesById = staticResponse.Teams.ToDictionary(
+                t => t.Id,
+                t => t.Name);
+            IEnumerable<Element> pickedElements = staticResponse.Elements.Where(e => pickedElementIds.Contains(e.Id));
+            IEnumerable<Player> players = pickedElements.Select(
+                e => Player.FromElement(e, teamNamesById, true));
 
             return players;
         }
