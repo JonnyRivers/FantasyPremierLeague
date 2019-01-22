@@ -1,6 +1,7 @@
 export interface Player {
   id: number;
   name: string;
+  picked: boolean;
   team: string;
   position: string;
   nowCost: number;

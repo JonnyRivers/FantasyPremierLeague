@@ -7,6 +7,7 @@ namespace FantasyPremierLeague.Web.Model
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public bool Picked { get; set; }
         public string Team { get; set; }
         public string Position { get; set; }
         public float NowCost { get; set; }
@@ -29,9 +30,22 @@ namespace FantasyPremierLeague.Web.Model
         public float IctIndexPerNinety { get; set; }
         public float IctIndexPerNinetyPerNowCost { get; set; }
 
+        private static string GetElementName(Element element)
+        {
+            if (element.WebName == element.SecondName)
+            {
+                // e.g. Alan Shearer
+                return $"{element.FirstName} {element.SecondName}";
+            }
+
+            // e.g. Romario
+            return element.WebName;
+        }
+
         internal static Player FromElement(
             Element element,
-            Dictionary<int, string> teamNamesById)
+            Dictionary<int, string> teamNamesById,
+            ISet<int> pickedElementIds)
         {
             float minutes = element.Minutes;
             float nineties = minutes / 90;
@@ -54,7 +68,8 @@ namespace FantasyPremierLeague.Web.Model
             return new Player
             {
                 Id = element.Id,
-                Name = (element.WebName == element.SecondName) ? $"{element.FirstName} {element.SecondName}" : element.WebName,
+                Name = GetElementName(element),
+                Picked = pickedElementIds.Contains(element.Id),
                 Position = ((ElementType)element.ElementType).ToString(),
                 Team = teamNamesById[element.Team],
                 NowCost = nowCost,

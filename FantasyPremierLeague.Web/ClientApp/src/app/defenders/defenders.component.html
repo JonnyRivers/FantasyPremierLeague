@@ -38,7 +38,7 @@
 
     <!-- Points Per 90 Per Now Cost Column -->
     <ng-container matColumnDef="pointsPerNinetyPerNowCost">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Pts/Min/Cost </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Pts/90/Cost </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.pointsPerNinetyPerNowCost}} </mat-cell>
     </ng-container>
 
@@ -97,6 +97,8 @@
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    <mat-row *matRowDef="let element; columns: displayedColumns;"
+             [ngClass]="{'element-picked' : element.picked}">
+    </mat-row>
   </mat-table>
 </div>
