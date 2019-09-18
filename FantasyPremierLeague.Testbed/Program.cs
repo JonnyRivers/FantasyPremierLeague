@@ -121,7 +121,7 @@ namespace FantasyPremierLeague.Testbed
 
             StaticResponse staticResponse = await fplWebApiClient.GetStaticAsync();
 
-            //int myTeamId = 2042915;
+            //int myTeamId = 1494020;
             //TeamResponse teamResponse = await fplWebApiClient.GetTeamAsync(
             //    myTeamId,
             //    staticResponse.CurrentEvent);
