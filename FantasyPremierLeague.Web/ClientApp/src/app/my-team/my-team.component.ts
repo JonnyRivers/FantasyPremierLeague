@@ -24,7 +24,7 @@ export class MyTeamComponent {
     'ictIndexPerNinety',
     'ictIndexPerNinetyPerNowCost',
   ];
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
 
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
     http.get<Player[]>(baseUrl + 'api/myteam').subscribe(result => {
