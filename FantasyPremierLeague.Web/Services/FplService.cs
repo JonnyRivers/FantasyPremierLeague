@@ -17,7 +17,7 @@ namespace FantasyPremierLeague.Web.Services
             TeamResponse teamResponse = await fplApiClient.GetTeamAsync(MyTeamId, staticResponse.CurrentEvent);
             var pickedElementIds = new HashSet<int>(teamResponse.Picks.Select(p => p.ElementId));
 
-            double minimumMinutesRatio = 0.5d;
+            double minimumMinutesRatio = 0.2d;
             double totalMinutes = staticResponse.CurrentEvent * 90;
             double minimumMinutesPlayed = totalMinutes * minimumMinutesRatio;
             Dictionary<int, string> teamNamesById = staticResponse.Teams.ToDictionary(
