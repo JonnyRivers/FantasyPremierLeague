@@ -7,15 +7,19 @@ namespace FantasyPremierLeague.Web.Services
 {
     public class FplService
     {
-        private const int MyTeamId = 1494020;
+        private const int MyTeamId = 1231491;
 
         private async Task<IEnumerable<Player>> GetPlayersByElementTypeAsync(ElementType elementType)
         {
             var fplApiClient = new WebApiClient();
             StaticResponse staticResponse = await fplApiClient.GetStaticAsync();
 
-            TeamResponse teamResponse = await fplApiClient.GetTeamAsync(MyTeamId, staticResponse.CurrentEvent);
-            var pickedElementIds = new HashSet<int>(teamResponse.Picks.Select(p => p.ElementId));
+            var pickedElementIds = new HashSet<int>();
+            if(staticResponse.CurrentEvent > 0)
+            {
+                TeamResponse teamResponse = await fplApiClient.GetTeamAsync(MyTeamId, staticResponse.CurrentEvent);
+                pickedElementIds = new HashSet<int>(teamResponse.Picks.Select(p => p.ElementId));
+            }
 
             double minimumMinutesRatio = 0.2d;
             double totalMinutes = staticResponse.CurrentEvent * 90;
@@ -37,8 +41,12 @@ namespace FantasyPremierLeague.Web.Services
             var fplApiClient = new WebApiClient();
             StaticResponse staticResponse = await fplApiClient.GetStaticAsync();
 
-            TeamResponse teamResponse = await fplApiClient.GetTeamAsync(MyTeamId, staticResponse.CurrentEvent);
-            var pickedElementIds = new HashSet<int>(teamResponse.Picks.Select(p => p.ElementId));
+            var pickedElementIds = new HashSet<int>();
+            if (staticResponse.CurrentEvent > 0)
+            {
+                TeamResponse teamResponse = await fplApiClient.GetTeamAsync(MyTeamId, staticResponse.CurrentEvent);
+                pickedElementIds = new HashSet<int>(teamResponse.Picks.Select(p => p.ElementId));
+            }
 
             Dictionary<int, string> teamNamesById = staticResponse.Teams.ToDictionary(
                 t => t.Id,
