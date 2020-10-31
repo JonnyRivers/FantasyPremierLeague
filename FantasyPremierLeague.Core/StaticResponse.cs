@@ -6,14 +6,29 @@ namespace FantasyPremierLeague
 {
     public class StaticResponse
     {
-        [JsonProperty("phases")]
-        public IEnumerable<Phase> Phases { get; set; }
-        [JsonProperty("elements")]
-        public IEnumerable<Element> Elements { get; set; }
-        [JsonProperty("teams")]
-        public IEnumerable<Team> Teams { get; set; }
         [JsonProperty("events")]
         public IEnumerable<Event> Events { get; set; }
+
+        //[JsonProperty("phases")]
+        //public GameSettings GameSettings { get; set; }
+
+        [JsonProperty("phases")]
+        public IEnumerable<Phase> Phases { get; set; }
+
+        [JsonProperty("teams")]
+        public IEnumerable<Team> Teams { get; set; }
+
+        //[JsonProperty("total_players")]
+        //public int TotalPlayers { get; set; }
+
+        [JsonProperty("elements")]
+        public IEnumerable<Element> Elements { get; set; }
+
+        //[JsonProperty("element_stats")]
+        //public IEnumerable<ElementStat> ElementStats { get; set; }
+
+        //[JsonProperty("element_types")]
+        //public IEnumerable<ElementType> ElementTypes { get; set; }
 
         public int CurrentEvent
         {
