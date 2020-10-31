@@ -10,6 +10,8 @@ namespace FantasyPremierLeague.Testbed
     {
         public async Task Build(WebApiClient fplWebApiClient, StaticResponse staticResponse)
         {
+            IEnumerable<Fixture> fixtures = await fplWebApiClient.GetFixturesAsync();
+
             // Get James Milner ('cos he's played lots of seasons)
             int jamesMilnerElementId = 241;
             ElementSummaryResponse jamesMilnerElementResponse = await fplWebApiClient.GetElementSummaryAsync(jamesMilnerElementId);
@@ -28,7 +30,10 @@ namespace FantasyPremierLeague.Testbed
 
             foreach (ElementHistory history in jamesMilnerElementResponse.History)
             {
-                Console.WriteLine($"FixtureId {history.FixtureId} - Mins: {history.Minutes}; Goals: {history.GoalsScored}; Assists: {history.Assists}; Bonus: {history.Bonus}; Total Points: {history.TotalPoints}");
+                Fixture fixture = fixtures.Single(f => f.Id == history.FixtureId);
+                Event evnt = staticResponse.Events.Single(e => e.Id == fixture.EventId);
+                Team opponentTeam = staticResponse.Teams.Single(t => t.Id == history.OpponentTeamId);
+                Console.WriteLine($"Event {evnt.Name} (vs {opponentTeam.Name} at {history.KickOffTime}) - Mins: {history.Minutes}; Goals: {history.GoalsScored}; Assists: {history.Assists}; Bonus: {history.Bonus}; Total Points: {history.TotalPoints}");
             }
         }
     }

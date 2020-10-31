@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -28,23 +29,23 @@ namespace FantasyPremierLeague
             }   
         }
 
-        //public async Task<FixturesResponse> GetFixturesAsync()
-        //{
-        //    using (var httpClient = new HttpClient())
-        //    {
-        //        HttpResponseMessage httpResponseMessage = await httpClient.GetAsync(FixturesRequestUri);
-        //        if (!httpResponseMessage.IsSuccessStatusCode)
-        //        {
-        //            throw new HttpRequestException(
-        //                $"Received non-success status code {httpResponseMessage.ReasonPhrase} from FPL Web API");
-        //        }
+        public async Task<IEnumerable<Fixture>> GetFixturesAsync()
+        {
+            using (var httpClient = new HttpClient())
+            {
+                HttpResponseMessage httpResponseMessage = await httpClient.GetAsync(FixturesRequestUri);
+                if (!httpResponseMessage.IsSuccessStatusCode)
+                {
+                    throw new HttpRequestException(
+                        $"Received non-success status code {httpResponseMessage.ReasonPhrase} from FPL Web API");
+                }
 
-        //        string httpResponseContentText = await httpResponseMessage.Content.ReadAsStringAsync();
+                string httpResponseContentText = await httpResponseMessage.Content.ReadAsStringAsync();
 
-        //        FixturesResponse fixturesResponse = JsonConvert.DeserializeObject<FixturesResponse>(httpResponseContentText);
-        //        return fixturesResponse;
-        //    }
-        //}
+                IEnumerable<Fixture> fixtures = JsonConvert.DeserializeObject<IEnumerable<Fixture>>(httpResponseContentText);
+                return fixtures;
+            }
+        }
 
         public async Task<ElementSummaryResponse> GetElementSummaryAsync(int id)
         {
