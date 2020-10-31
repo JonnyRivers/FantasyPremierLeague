@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -7,6 +8,7 @@ namespace FantasyPremierLeague
     public class WebApiClient
     {
         private const string StaticRequestUri = "https://fantasy.premierleague.com/api/bootstrap-static/";
+        private const string FixturesRequestUri = "https://fantasy.premierleague.com/api/fixtures/";
         private const string ElementDetailRequestBaseUri = "https://fantasy.premierleague.com/api/element-summary/";
 
         public async Task<StaticResponse> GetStaticAsync()
@@ -27,11 +29,11 @@ namespace FantasyPremierLeague
             }   
         }
 
-        public async Task<ElementDetailResponse> GetElementDetailAsync(int id)
+        public async Task<IEnumerable<Fixture>> GetFixturesAsync()
         {
             using (var httpClient = new HttpClient())
             {
-                HttpResponseMessage httpResponseMessage = await httpClient.GetAsync(ElementDetailRequestBaseUri + $"{id}");
+                HttpResponseMessage httpResponseMessage = await httpClient.GetAsync(FixturesRequestUri);
                 if (!httpResponseMessage.IsSuccessStatusCode)
                 {
                     throw new HttpRequestException(
@@ -40,8 +42,26 @@ namespace FantasyPremierLeague
 
                 string httpResponseContentText = await httpResponseMessage.Content.ReadAsStringAsync();
 
-                ElementDetailResponse elementDetailResponse = JsonConvert.DeserializeObject<ElementDetailResponse>(httpResponseContentText);
-                return elementDetailResponse;
+                IEnumerable<Fixture> fixtures = JsonConvert.DeserializeObject<IEnumerable<Fixture>>(httpResponseContentText);
+                return fixtures;
+            }
+        }
+
+        public async Task<ElementSummaryResponse> GetElementSummaryAsync(int id)
+        {
+            using (var httpClient = new HttpClient())
+            {
+                HttpResponseMessage httpResponseMessage = await httpClient.GetAsync($"{ElementDetailRequestBaseUri}{id}/");
+                if (!httpResponseMessage.IsSuccessStatusCode)
+                {
+                    throw new HttpRequestException(
+                        $"Received non-success status code {httpResponseMessage.ReasonPhrase} from FPL Web API");
+                }
+
+                string httpResponseContentText = await httpResponseMessage.Content.ReadAsStringAsync();
+
+                ElementSummaryResponse elementSummaryResponse = JsonConvert.DeserializeObject<ElementSummaryResponse>(httpResponseContentText);
+                return elementSummaryResponse;
             }
         }
 
@@ -60,8 +80,8 @@ namespace FantasyPremierLeague
 
                 string httpResponseContentText = await httpResponseMessage.Content.ReadAsStringAsync();
 
-                TeamResponse elementDetailResponse = JsonConvert.DeserializeObject<TeamResponse>(httpResponseContentText);
-                return elementDetailResponse;
+                TeamResponse teamResponse = JsonConvert.DeserializeObject<TeamResponse>(httpResponseContentText);
+                return teamResponse;
             }
         }
     }

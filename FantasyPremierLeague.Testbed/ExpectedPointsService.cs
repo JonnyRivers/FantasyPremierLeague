@@ -42,9 +42,9 @@ namespace FantasyPremierLeague.Testbed
         public async Task<float> CalculateExpectedPointsAsync(Element element)
         {
             var fplWebApiClient = new WebApiClient();
-            ElementDetailResponse elementDetailResponse = await fplWebApiClient.GetElementDetailAsync(element.Id);
+            ElementSummaryResponse elementSummaryResponse = await fplWebApiClient.GetElementSummaryAsync(element.Id);
 
-            float minutesPlayed = elementDetailResponse.History.Sum(h => h.Minutes);
+            float minutesPlayed = elementSummaryResponse.History.Sum(h => h.Minutes);
             float ninetiesPlayed = minutesPlayed / 90;
 
             float yellowCards = element.YellowCards;
@@ -62,7 +62,7 @@ namespace FantasyPremierLeague.Testbed
             float expectedPointsFromGoalsOnHistory = pointsPerGoal * goalsPerNinety;
 
             float expectedGoalsPerThreat = ExpectedGoalsPerThreat(element.ElementType);
-            float threat = elementDetailResponse.History.Sum(h => float.Parse(h.Threat));
+            float threat = elementSummaryResponse.History.Sum(h => float.Parse(h.Threat));
             float threatPerNinety = threat / ninetiesPlayed;
             float expectedGoalsFromThreat = threatPerNinety / expectedGoalsPerThreat;
             float expectedPointsFromGoalsOnThreat = pointsPerGoal * expectedGoalsFromThreat;

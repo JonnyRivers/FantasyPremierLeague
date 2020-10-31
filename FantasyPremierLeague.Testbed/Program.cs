@@ -115,6 +115,13 @@ namespace FantasyPremierLeague.Testbed
             Console.WriteLine($"Expected points: {expectedPoints:N2}");
         }
 
+        static async Task BuildTrainingDataAsync(WebApiClient fplWebApiClient, StaticResponse staticResponse)
+        {
+            var trainingDataBuilder = new TrainingDataBuilder();
+
+            await trainingDataBuilder.Build(fplWebApiClient, staticResponse);
+        }
+
         static async Task Main(string[] args)
         {
             var fplWebApiClient = new WebApiClient();
@@ -165,6 +172,10 @@ namespace FantasyPremierLeague.Testbed
             else if (command == "expected-points")
             {
                 await PrintAllExpectedPointsAsync(staticResponse);
+            }
+            else if (command == "build-training-data")
+            {
+                await BuildTrainingDataAsync(fplWebApiClient, staticResponse);
             }
         }
     }

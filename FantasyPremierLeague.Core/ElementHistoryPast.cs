@@ -1,37 +1,24 @@
 ﻿using Newtonsoft.Json;
-using System;
 
 namespace FantasyPremierLeague
 {
-    public class ElementHistory
+    public class ElementHistoryPast
     {
-        [JsonProperty("element")]
-        public int ElementId { get; set; }
+        [JsonProperty("season_name")]
+        public string SeasonName { get; set; }
 
-        [JsonProperty("fixture")]
-        public int FixtureId { get; set; }
+        [JsonProperty("element_code")]
+        public int ElementCode { get; set; }
 
-        [JsonProperty("opponent_team")]
-        public int OpponentTeamId { get; set; }
+        [JsonProperty("start_cost")]
+        public int StartCost { get; set; }
+
+        [JsonProperty("end_cost")]
+        public int EndCost { get; set; }
 
         [JsonProperty("total_points")]
         public int TotalPoints { get; set; }
 
-        [JsonProperty("was_home")]
-        public bool WasHome { get; set; }
-
-        [JsonProperty("kickoff_time")]
-        public DateTime KickOffTime { get; set; }
-
-        [JsonProperty("team_h_score")]
-        public int HomeTeamScore { get; set; }
-
-        [JsonProperty("team_a_score")]
-        public int AwayTeamScore { get; set; }
-        
-        [JsonProperty("round")]
-        public int Round { get; set; }
-        
         [JsonProperty("minutes")]
         public int Minutes { get; set; }
 
@@ -82,20 +69,5 @@ namespace FantasyPremierLeague
 
         [JsonProperty("ict_index")]
         public string IctIndex { get; set; }
-
-        [JsonProperty("value")]
-        public int Value { get; set; }
-
-        [JsonProperty("transfers_balance")]
-        public int TransfersBalance { get; set; }
-
-        [JsonProperty("selected")]
-        public int Selected { get; set; }
-
-        [JsonProperty("transfers_in")]
-        public int TransfersIn { get; set; }
-
-        [JsonProperty("transfers_out")]
-        public int TransfersOut { get; set; }
     }
 }
