@@ -46,11 +46,11 @@ namespace FantasyPremierLeague
         //    }
         //}
 
-        public async Task<ElementDetailResponse> GetElementDetailAsync(int id)
+        public async Task<ElementSummaryResponse> GetElementSummaryAsync(int id)
         {
             using (var httpClient = new HttpClient())
             {
-                HttpResponseMessage httpResponseMessage = await httpClient.GetAsync(ElementDetailRequestBaseUri + $"{id}");
+                HttpResponseMessage httpResponseMessage = await httpClient.GetAsync($"{ElementDetailRequestBaseUri}{id}/");
                 if (!httpResponseMessage.IsSuccessStatusCode)
                 {
                     throw new HttpRequestException(
@@ -59,8 +59,8 @@ namespace FantasyPremierLeague
 
                 string httpResponseContentText = await httpResponseMessage.Content.ReadAsStringAsync();
 
-                ElementDetailResponse elementDetailResponse = JsonConvert.DeserializeObject<ElementDetailResponse>(httpResponseContentText);
-                return elementDetailResponse;
+                ElementSummaryResponse elementSummaryResponse = JsonConvert.DeserializeObject<ElementSummaryResponse>(httpResponseContentText);
+                return elementSummaryResponse;
             }
         }
 
@@ -79,8 +79,8 @@ namespace FantasyPremierLeague
 
                 string httpResponseContentText = await httpResponseMessage.Content.ReadAsStringAsync();
 
-                TeamResponse elementDetailResponse = JsonConvert.DeserializeObject<TeamResponse>(httpResponseContentText);
-                return elementDetailResponse;
+                TeamResponse teamResponse = JsonConvert.DeserializeObject<TeamResponse>(httpResponseContentText);
+                return teamResponse;
             }
         }
     }

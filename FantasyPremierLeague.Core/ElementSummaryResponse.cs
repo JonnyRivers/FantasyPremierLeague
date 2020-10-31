@@ -3,11 +3,10 @@ using System.Collections.Generic;
 
 namespace FantasyPremierLeague
 {
-    // TODO: ElementSummaryResponse?
-    public class ElementDetailResponse
+    public class ElementSummaryResponse
     {
-        //[JsonProperty("fixtures")]
-        //public IEnumerable<ElementFixture> Fixtures { get; set; }
+        [JsonProperty("fixtures")]
+        public IEnumerable<ElementFixture> Fixtures { get; set; }
 
         [JsonProperty("history")]
         public IEnumerable<ElementHistory> History { get; set; }
