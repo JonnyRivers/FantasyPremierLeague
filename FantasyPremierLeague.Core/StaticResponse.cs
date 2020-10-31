@@ -9,8 +9,8 @@ namespace FantasyPremierLeague
         [JsonProperty("events")]
         public IEnumerable<Event> Events { get; set; }
 
-        //[JsonProperty("phases")]
-        //public GameSettings GameSettings { get; set; }
+        [JsonProperty("game_settings")]
+        public GameSettings GameSettings { get; set; }
 
         [JsonProperty("phases")]
         public IEnumerable<Phase> Phases { get; set; }
