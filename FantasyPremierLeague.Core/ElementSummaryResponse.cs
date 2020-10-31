@@ -11,7 +11,7 @@ namespace FantasyPremierLeague
         [JsonProperty("history")]
         public IEnumerable<ElementHistory> History { get; set; }
 
-        //[JsonProperty("history_past")]
-        //public IEnumerable<ElementHistoryPast> HistoryPast { get; set; }
+        [JsonProperty("history_past")]
+        public IEnumerable<ElementHistoryPast> HistoryPast { get; set; }
     }
 }

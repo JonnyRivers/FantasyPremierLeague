@@ -18,8 +18,13 @@ namespace FantasyPremierLeague.Testbed
             {
                 Team homeTeam = staticResponse.Teams.Single(t => t.Id == fixture.HomeTeamId);
                 Team awayTeam = staticResponse.Teams.Single(t => t.Id == fixture.AwayTeamId);
-                Console.WriteLine($"Event {fixture.EventName} - {homeTeam.Name} vs {awayTeam.Name} at {fixture.KickOffTime}");
-            }            
+                Console.WriteLine($"Event {fixture.EventName} - {homeTeam.Name} vs {awayTeam.Name} at {fixture.KickOffTime} (D: {fixture.Difficulty})");
+            }
+
+            foreach(ElementHistoryPast historyPast in jamesMilnerElementResponse.HistoryPast)
+            {
+                Console.WriteLine($"Season {historyPast.SeasonName} - Mins: {historyPast.Minutes}; Goals: {historyPast.GoalsScored}; Assists: {historyPast.Assists}; Bonus: {historyPast.Bonus}; Total Points: {historyPast.TotalPoints}");
+            }
         }
     }
 }
