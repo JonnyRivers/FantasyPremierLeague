@@ -25,6 +25,11 @@ namespace FantasyPremierLeague.Testbed
             {
                 Console.WriteLine($"Season {historyPast.SeasonName} - Mins: {historyPast.Minutes}; Goals: {historyPast.GoalsScored}; Assists: {historyPast.Assists}; Bonus: {historyPast.Bonus}; Total Points: {historyPast.TotalPoints}");
             }
+
+            foreach (ElementHistory history in jamesMilnerElementResponse.History)
+            {
+                Console.WriteLine($"FixtureId {history.FixtureId} - Mins: {history.Minutes}; Goals: {history.GoalsScored}; Assists: {history.Assists}; Bonus: {history.Bonus}; Total Points: {history.TotalPoints}");
+            }
         }
     }
 }
