@@ -1,14 +1,19 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <LangVersion>latest</LangVersion>
   </PropertyGroup>
-
+  <ItemGroup>
+    <PackageReference Include="Microsoft.ML" Version="1.5.0" />
+    <PackageReference Include="Microsoft.ML.LightGBM" Version="1.5.0" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FantasyPremierLeague.Core\FantasyPremierLeague.Core.csproj" />
     <ProjectReference Include="..\FantasyPremierLeagueML.Model\FantasyPremierLeagueML.Model.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectCapability Include="ModelBuilderGenerated" />
+  </ItemGroup>
 </Project>

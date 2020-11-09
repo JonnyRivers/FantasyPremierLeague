@@ -73,7 +73,7 @@ namespace FantasyPremierLeague
         public int HomeTeamDifficulty { get; set; }
 
         [JsonProperty("team_a_difficulty")]
-        public int AwayTeamDfficulty { get; set; }
+        public int AwayTeamDifficulty { get; set; }
 
         [JsonProperty("pulse_id")]
         public int PulseId { get; set; }
