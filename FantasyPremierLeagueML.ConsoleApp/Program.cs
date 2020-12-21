@@ -41,23 +41,23 @@ namespace FantasyPremierLeagueML.ConsoleApp
 
                     ModelInput fixtureData = new ModelInput()
                     {
-                        Mins2017 = (history2017 == null) ? 0 : history2017.Minutes,
-                        Pts2017 = (history2017 == null) ? 0 : history2017.TotalPoints,
-                        Valid2017 = (history2017 == null) ? 0 : 1,
-                        Mins2018 = (history2018 == null) ? 0 : history2018.Minutes,
-                        Pts2018 = (history2018 == null) ? 0 : history2018.TotalPoints,
-                        Valid2018 = (history2018 == null) ? 0 : 1,
-                        Mins2019 = (history2019 == null) ? 0 : history2019.Minutes,
-                        Pts2019 = (history2019 == null) ? 0 : history2019.TotalPoints,
-                        Valid2019 = (history2019 == null) ? 0 : 1,
+                        Minutes2017 = (history2017 == null) ? 0 : history2017.Minutes,
+                        Points2017 = (history2017 == null) ? 0 : history2017.TotalPoints,
+                        Isvalid2017 = (history2017 == null) ? "0" : "1",
+                        Minutes2018 = (history2018 == null) ? 0 : history2018.Minutes,
+                        Points2018 = (history2018 == null) ? 0 : history2018.TotalPoints,
+                        Isvalid2018 = (history2018 == null) ? 0 : 1,
+                        Minutes2019 = (history2019 == null) ? 0 : history2019.Minutes,
+                        Points2019 = (history2019 == null) ? 0 : history2019.TotalPoints,
+                        Isvalid2019 = (history2019 == null) ? 0 : 1,
                         Diff = 2F,
-                        Home = 0F,
+                        Home = "0",
                     };
 
                     foreach (ElementFixture fixture in elementResponse.Fixtures)
                     {
                         fixtureData.Diff = fixture.Difficulty;
-                        fixtureData.Home = fixture.IsHome ? 1 : 0;
+                        fixtureData.Home = fixture.IsHome ? "1" : "0";
 
                         var predictionResult = ConsumeModel.Predict(fixtureData);
 

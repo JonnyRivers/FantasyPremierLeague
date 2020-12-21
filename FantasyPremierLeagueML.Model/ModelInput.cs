@@ -6,51 +6,507 @@ namespace FantasyPremierLeagueML.Model
 {
     public class ModelInput
     {
-        [ColumnName("mins2017"), LoadColumn(0)]
-        public float Mins2017 { get; set; }
+        [ColumnName("isvalid2017"), LoadColumn(0)]
+        public string Isvalid2017 { get; set; }
 
 
-        [ColumnName("pts2017"), LoadColumn(1)]
-        public float Pts2017 { get; set; }
+        [ColumnName("minutes2017"), LoadColumn(1)]
+        public float Minutes2017 { get; set; }
 
 
-        [ColumnName("valid2017"), LoadColumn(2)]
-        public float Valid2017 { get; set; }
+        [ColumnName("points2017"), LoadColumn(2)]
+        public float Points2017 { get; set; }
 
 
-        [ColumnName("mins2018"), LoadColumn(3)]
-        public float Mins2018 { get; set; }
+        [ColumnName("influence2017"), LoadColumn(3)]
+        public float Influence2017 { get; set; }
 
 
-        [ColumnName("pts2018"), LoadColumn(4)]
-        public float Pts2018 { get; set; }
+        [ColumnName("creativity2017"), LoadColumn(4)]
+        public float Creativity2017 { get; set; }
 
 
-        [ColumnName("valid2018"), LoadColumn(5)]
-        public float Valid2018 { get; set; }
+        [ColumnName("threat2017"), LoadColumn(5)]
+        public float Threat2017 { get; set; }
 
 
-        [ColumnName("mins2019"), LoadColumn(6)]
-        public float Mins2019 { get; set; }
+        [ColumnName("isvalid2018"), LoadColumn(6)]
+        public float Isvalid2018 { get; set; }
 
 
-        [ColumnName("pts2019"), LoadColumn(7)]
-        public float Pts2019 { get; set; }
+        [ColumnName("minutes2018"), LoadColumn(7)]
+        public float Minutes2018 { get; set; }
 
 
-        [ColumnName("valid2019"), LoadColumn(8)]
-        public float Valid2019 { get; set; }
+        [ColumnName("points2018"), LoadColumn(8)]
+        public float Points2018 { get; set; }
 
 
-        [ColumnName("diff"), LoadColumn(9)]
+        [ColumnName("influence2018"), LoadColumn(9)]
+        public float Influence2018 { get; set; }
+
+
+        [ColumnName("creativity2018"), LoadColumn(10)]
+        public float Creativity2018 { get; set; }
+
+
+        [ColumnName("threat2018"), LoadColumn(11)]
+        public float Threat2018 { get; set; }
+
+
+        [ColumnName("isvalid2019"), LoadColumn(12)]
+        public float Isvalid2019 { get; set; }
+
+
+        [ColumnName("minutes2019"), LoadColumn(13)]
+        public float Minutes2019 { get; set; }
+
+
+        [ColumnName("points2019"), LoadColumn(14)]
+        public float Points2019 { get; set; }
+
+
+        [ColumnName("influence2019"), LoadColumn(15)]
+        public float Influence2019 { get; set; }
+
+
+        [ColumnName("creativity2019"), LoadColumn(16)]
+        public float Creativity2019 { get; set; }
+
+
+        [ColumnName("threat2019"), LoadColumn(17)]
+        public float Threat2019 { get; set; }
+
+
+        [ColumnName("isvalidgw-less-1"), LoadColumn(18)]
+        public string Isvalidgw_less_1 { get; set; }
+
+
+        [ColumnName("minutesgw-less-1"), LoadColumn(19)]
+        public float Minutesgw_less_1 { get; set; }
+
+
+        [ColumnName("pointsgw-less-1"), LoadColumn(20)]
+        public float Pointsgw_less_1 { get; set; }
+
+
+        [ColumnName("influencegw-less-1"), LoadColumn(21)]
+        public float Influencegw_less_1 { get; set; }
+
+
+        [ColumnName("creativitygw-less-1"), LoadColumn(22)]
+        public float Creativitygw_less_1 { get; set; }
+
+
+        [ColumnName("threatgw-less-1"), LoadColumn(23)]
+        public float Threatgw_less_1 { get; set; }
+
+
+        [ColumnName("athomegw-less-1"), LoadColumn(24)]
+        public string Athomegw_less_1 { get; set; }
+
+
+        [ColumnName("difficultygw-less-1"), LoadColumn(25)]
+        public float Difficultygw_less_1 { get; set; }
+
+
+        [ColumnName("isvalidgw-less-2"), LoadColumn(26)]
+        public string Isvalidgw_less_2 { get; set; }
+
+
+        [ColumnName("minutesgw-less-2"), LoadColumn(27)]
+        public float Minutesgw_less_2 { get; set; }
+
+
+        [ColumnName("pointsgw-less-2"), LoadColumn(28)]
+        public float Pointsgw_less_2 { get; set; }
+
+
+        [ColumnName("influencegw-less-2"), LoadColumn(29)]
+        public float Influencegw_less_2 { get; set; }
+
+
+        [ColumnName("creativitygw-less-2"), LoadColumn(30)]
+        public float Creativitygw_less_2 { get; set; }
+
+
+        [ColumnName("threatgw-less-2"), LoadColumn(31)]
+        public float Threatgw_less_2 { get; set; }
+
+
+        [ColumnName("athomegw-less-2"), LoadColumn(32)]
+        public string Athomegw_less_2 { get; set; }
+
+
+        [ColumnName("difficultygw-less-2"), LoadColumn(33)]
+        public float Difficultygw_less_2 { get; set; }
+
+
+        [ColumnName("isvalidgw-less-3"), LoadColumn(34)]
+        public string Isvalidgw_less_3 { get; set; }
+
+
+        [ColumnName("minutesgw-less-3"), LoadColumn(35)]
+        public float Minutesgw_less_3 { get; set; }
+
+
+        [ColumnName("pointsgw-less-3"), LoadColumn(36)]
+        public float Pointsgw_less_3 { get; set; }
+
+
+        [ColumnName("influencegw-less-3"), LoadColumn(37)]
+        public float Influencegw_less_3 { get; set; }
+
+
+        [ColumnName("creativitygw-less-3"), LoadColumn(38)]
+        public float Creativitygw_less_3 { get; set; }
+
+
+        [ColumnName("threatgw-less-3"), LoadColumn(39)]
+        public float Threatgw_less_3 { get; set; }
+
+
+        [ColumnName("athomegw-less-3"), LoadColumn(40)]
+        public string Athomegw_less_3 { get; set; }
+
+
+        [ColumnName("difficultygw-less-3"), LoadColumn(41)]
+        public float Difficultygw_less_3 { get; set; }
+
+
+        [ColumnName("isvalidgw-less-4"), LoadColumn(42)]
+        public string Isvalidgw_less_4 { get; set; }
+
+
+        [ColumnName("minutesgw-less-4"), LoadColumn(43)]
+        public float Minutesgw_less_4 { get; set; }
+
+
+        [ColumnName("pointsgw-less-4"), LoadColumn(44)]
+        public float Pointsgw_less_4 { get; set; }
+
+
+        [ColumnName("influencegw-less-4"), LoadColumn(45)]
+        public float Influencegw_less_4 { get; set; }
+
+
+        [ColumnName("creativitygw-less-4"), LoadColumn(46)]
+        public float Creativitygw_less_4 { get; set; }
+
+
+        [ColumnName("threatgw-less-4"), LoadColumn(47)]
+        public float Threatgw_less_4 { get; set; }
+
+
+        [ColumnName("athomegw-less-4"), LoadColumn(48)]
+        public string Athomegw_less_4 { get; set; }
+
+
+        [ColumnName("difficultygw-less-4"), LoadColumn(49)]
+        public float Difficultygw_less_4 { get; set; }
+
+
+        [ColumnName("isvalidgw-less-5"), LoadColumn(50)]
+        public string Isvalidgw_less_5 { get; set; }
+
+
+        [ColumnName("minutesgw-less-5"), LoadColumn(51)]
+        public float Minutesgw_less_5 { get; set; }
+
+
+        [ColumnName("pointsgw-less-5"), LoadColumn(52)]
+        public float Pointsgw_less_5 { get; set; }
+
+
+        [ColumnName("influencegw-less-5"), LoadColumn(53)]
+        public float Influencegw_less_5 { get; set; }
+
+
+        [ColumnName("creativitygw-less-5"), LoadColumn(54)]
+        public float Creativitygw_less_5 { get; set; }
+
+
+        [ColumnName("threatgw-less-5"), LoadColumn(55)]
+        public float Threatgw_less_5 { get; set; }
+
+
+        [ColumnName("athomegw-less-5"), LoadColumn(56)]
+        public string Athomegw_less_5 { get; set; }
+
+
+        [ColumnName("difficultygw-less-5"), LoadColumn(57)]
+        public float Difficultygw_less_5 { get; set; }
+
+
+        [ColumnName("isvalidgw-less-6"), LoadColumn(58)]
+        public string Isvalidgw_less_6 { get; set; }
+
+
+        [ColumnName("minutesgw-less-6"), LoadColumn(59)]
+        public float Minutesgw_less_6 { get; set; }
+
+
+        [ColumnName("pointsgw-less-6"), LoadColumn(60)]
+        public float Pointsgw_less_6 { get; set; }
+
+
+        [ColumnName("influencegw-less-6"), LoadColumn(61)]
+        public float Influencegw_less_6 { get; set; }
+
+
+        [ColumnName("creativitygw-less-6"), LoadColumn(62)]
+        public float Creativitygw_less_6 { get; set; }
+
+
+        [ColumnName("threatgw-less-6"), LoadColumn(63)]
+        public float Threatgw_less_6 { get; set; }
+
+
+        [ColumnName("athomegw-less-6"), LoadColumn(64)]
+        public string Athomegw_less_6 { get; set; }
+
+
+        [ColumnName("difficultygw-less-6"), LoadColumn(65)]
+        public float Difficultygw_less_6 { get; set; }
+
+
+        [ColumnName("isvalidgw-less-7"), LoadColumn(66)]
+        public string Isvalidgw_less_7 { get; set; }
+
+
+        [ColumnName("minutesgw-less-7"), LoadColumn(67)]
+        public float Minutesgw_less_7 { get; set; }
+
+
+        [ColumnName("pointsgw-less-7"), LoadColumn(68)]
+        public float Pointsgw_less_7 { get; set; }
+
+
+        [ColumnName("influencegw-less-7"), LoadColumn(69)]
+        public float Influencegw_less_7 { get; set; }
+
+
+        [ColumnName("creativitygw-less-7"), LoadColumn(70)]
+        public float Creativitygw_less_7 { get; set; }
+
+
+        [ColumnName("threatgw-less-7"), LoadColumn(71)]
+        public float Threatgw_less_7 { get; set; }
+
+
+        [ColumnName("athomegw-less-7"), LoadColumn(72)]
+        public string Athomegw_less_7 { get; set; }
+
+
+        [ColumnName("difficultygw-less-7"), LoadColumn(73)]
+        public float Difficultygw_less_7 { get; set; }
+
+
+        [ColumnName("isvalidgw-less-8"), LoadColumn(74)]
+        public string Isvalidgw_less_8 { get; set; }
+
+
+        [ColumnName("minutesgw-less-8"), LoadColumn(75)]
+        public float Minutesgw_less_8 { get; set; }
+
+
+        [ColumnName("pointsgw-less-8"), LoadColumn(76)]
+        public float Pointsgw_less_8 { get; set; }
+
+
+        [ColumnName("influencegw-less-8"), LoadColumn(77)]
+        public float Influencegw_less_8 { get; set; }
+
+
+        [ColumnName("creativitygw-less-8"), LoadColumn(78)]
+        public float Creativitygw_less_8 { get; set; }
+
+
+        [ColumnName("threatgw-less-8"), LoadColumn(79)]
+        public float Threatgw_less_8 { get; set; }
+
+
+        [ColumnName("athomegw-less-8"), LoadColumn(80)]
+        public string Athomegw_less_8 { get; set; }
+
+
+        [ColumnName("difficultygw-less-8"), LoadColumn(81)]
+        public float Difficultygw_less_8 { get; set; }
+
+
+        [ColumnName("isvalidgw-less-9"), LoadColumn(82)]
+        public string Isvalidgw_less_9 { get; set; }
+
+
+        [ColumnName("minutesgw-less-9"), LoadColumn(83)]
+        public float Minutesgw_less_9 { get; set; }
+
+
+        [ColumnName("pointsgw-less-9"), LoadColumn(84)]
+        public float Pointsgw_less_9 { get; set; }
+
+
+        [ColumnName("influencegw-less-9"), LoadColumn(85)]
+        public float Influencegw_less_9 { get; set; }
+
+
+        [ColumnName("creativitygw-less-9"), LoadColumn(86)]
+        public float Creativitygw_less_9 { get; set; }
+
+
+        [ColumnName("threatgw-less-9"), LoadColumn(87)]
+        public float Threatgw_less_9 { get; set; }
+
+
+        [ColumnName("athomegw-less-9"), LoadColumn(88)]
+        public string Athomegw_less_9 { get; set; }
+
+
+        [ColumnName("difficultygw-less-9"), LoadColumn(89)]
+        public float Difficultygw_less_9 { get; set; }
+
+
+        [ColumnName("isvalidgw-less-10"), LoadColumn(90)]
+        public string Isvalidgw_less_10 { get; set; }
+
+
+        [ColumnName("minutesgw-less-10"), LoadColumn(91)]
+        public float Minutesgw_less_10 { get; set; }
+
+
+        [ColumnName("pointsgw-less-10"), LoadColumn(92)]
+        public float Pointsgw_less_10 { get; set; }
+
+
+        [ColumnName("influencegw-less-10"), LoadColumn(93)]
+        public float Influencegw_less_10 { get; set; }
+
+
+        [ColumnName("creativitygw-less-10"), LoadColumn(94)]
+        public float Creativitygw_less_10 { get; set; }
+
+
+        [ColumnName("threatgw-less-10"), LoadColumn(95)]
+        public float Threatgw_less_10 { get; set; }
+
+
+        [ColumnName("athomegw-less-10"), LoadColumn(96)]
+        public string Athomegw_less_10 { get; set; }
+
+
+        [ColumnName("difficultygw-less-10"), LoadColumn(97)]
+        public float Difficultygw_less_10 { get; set; }
+
+
+        [ColumnName("isvalidgw-less-11"), LoadColumn(98)]
+        public string Isvalidgw_less_11 { get; set; }
+
+
+        [ColumnName("minutesgw-less-11"), LoadColumn(99)]
+        public float Minutesgw_less_11 { get; set; }
+
+
+        [ColumnName("pointsgw-less-11"), LoadColumn(100)]
+        public string Pointsgw_less_11 { get; set; }
+
+
+        [ColumnName("influencegw-less-11"), LoadColumn(101)]
+        public float Influencegw_less_11 { get; set; }
+
+
+        [ColumnName("creativitygw-less-11"), LoadColumn(102)]
+        public float Creativitygw_less_11 { get; set; }
+
+
+        [ColumnName("threatgw-less-11"), LoadColumn(103)]
+        public float Threatgw_less_11 { get; set; }
+
+
+        [ColumnName("athomegw-less-11"), LoadColumn(104)]
+        public string Athomegw_less_11 { get; set; }
+
+
+        [ColumnName("difficultygw-less-11"), LoadColumn(105)]
+        public float Difficultygw_less_11 { get; set; }
+
+
+        [ColumnName("isvalidgw-less-12"), LoadColumn(106)]
+        public string Isvalidgw_less_12 { get; set; }
+
+
+        [ColumnName("minutesgw-less-12"), LoadColumn(107)]
+        public string Minutesgw_less_12 { get; set; }
+
+
+        [ColumnName("pointsgw-less-12"), LoadColumn(108)]
+        public string Pointsgw_less_12 { get; set; }
+
+
+        [ColumnName("influencegw-less-12"), LoadColumn(109)]
+        public float Influencegw_less_12 { get; set; }
+
+
+        [ColumnName("creativitygw-less-12"), LoadColumn(110)]
+        public float Creativitygw_less_12 { get; set; }
+
+
+        [ColumnName("threatgw-less-12"), LoadColumn(111)]
+        public float Threatgw_less_12 { get; set; }
+
+
+        [ColumnName("athomegw-less-12"), LoadColumn(112)]
+        public string Athomegw_less_12 { get; set; }
+
+
+        [ColumnName("difficultygw-less-12"), LoadColumn(113)]
+        public float Difficultygw_less_12 { get; set; }
+
+
+        [ColumnName("isvalidgw-less-13"), LoadColumn(114)]
+        public string Isvalidgw_less_13 { get; set; }
+
+
+        [ColumnName("minutesgw-less-13"), LoadColumn(115)]
+        public float Minutesgw_less_13 { get; set; }
+
+
+        [ColumnName("pointsgw-less-13"), LoadColumn(116)]
+        public float Pointsgw_less_13 { get; set; }
+
+
+        [ColumnName("influencegw-less-13"), LoadColumn(117)]
+        public float Influencegw_less_13 { get; set; }
+
+
+        [ColumnName("creativitygw-less-13"), LoadColumn(118)]
+        public float Creativitygw_less_13 { get; set; }
+
+
+        [ColumnName("threatgw-less-13"), LoadColumn(119)]
+        public float Threatgw_less_13 { get; set; }
+
+
+        [ColumnName("athomegw-less-13"), LoadColumn(120)]
+        public float Athomegw_less_13 { get; set; }
+
+
+        [ColumnName("difficultygw-less-13"), LoadColumn(121)]
+        public float Difficultygw_less_13 { get; set; }
+
+
+        [ColumnName("diff"), LoadColumn(122)]
         public float Diff { get; set; }
 
 
-        [ColumnName("home"), LoadColumn(10)]
-        public float Home { get; set; }
+        [ColumnName("home"), LoadColumn(123)]
+        public string Home { get; set; }
 
 
-        [ColumnName("points"), LoadColumn(11)]
+        [ColumnName("value"), LoadColumn(124)]
+        public float Value { get; set; }
+
+
+        [ColumnName("points"), LoadColumn(125)]
         public float Points { get; set; }
 
 
