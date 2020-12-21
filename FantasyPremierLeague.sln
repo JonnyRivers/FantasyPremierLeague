@@ -1,13 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28010.2003
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30517.126
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FantasyPremierLeague.Core", "FantasyPremierLeague.Core\FantasyPremierLeague.Core.csproj", "{1986E949-26AF-48F9-812A-23B3B1A212F2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FantasyPremierLeague.Testbed", "FantasyPremierLeague.Testbed\FantasyPremierLeague.Testbed.csproj", "{61751C24-96DB-4222-9C34-9A1A20BD3F17}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FantasyPremierLeague.Web", "FantasyPremierLeague.Web\FantasyPremierLeague.Web.csproj", "{0710BAAA-EC5E-4B6B-B4E0-537C896702D0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FantasyPremierLeague.Web", "FantasyPremierLeague.Web\FantasyPremierLeague.Web.csproj", "{0710BAAA-EC5E-4B6B-B4E0-537C896702D0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FantasyPremierLeagueML.Model", "FantasyPremierLeagueML.Model\FantasyPremierLeagueML.Model.csproj", "{96983CB3-2BA3-4458-9B02-395B7852064D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FantasyPremierLeagueML.ConsoleApp", "FantasyPremierLeagueML.ConsoleApp\FantasyPremierLeagueML.ConsoleApp.csproj", "{DE4144FD-9F33-4671-8DBF-3E28727916ED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +31,14 @@ Global
 		{0710BAAA-EC5E-4B6B-B4E0-537C896702D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0710BAAA-EC5E-4B6B-B4E0-537C896702D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0710BAAA-EC5E-4B6B-B4E0-537C896702D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96983CB3-2BA3-4458-9B02-395B7852064D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96983CB3-2BA3-4458-9B02-395B7852064D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96983CB3-2BA3-4458-9B02-395B7852064D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96983CB3-2BA3-4458-9B02-395B7852064D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE4144FD-9F33-4671-8DBF-3E28727916ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE4144FD-9F33-4671-8DBF-3E28727916ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE4144FD-9F33-4671-8DBF-3E28727916ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE4144FD-9F33-4671-8DBF-3E28727916ED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

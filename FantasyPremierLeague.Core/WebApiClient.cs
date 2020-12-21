@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -60,8 +61,19 @@ namespace FantasyPremierLeague
 
                 string httpResponseContentText = await httpResponseMessage.Content.ReadAsStringAsync();
 
-                ElementSummaryResponse elementSummaryResponse = JsonConvert.DeserializeObject<ElementSummaryResponse>(httpResponseContentText);
-                return elementSummaryResponse;
+                try
+                {
+                    ElementSummaryResponse elementSummaryResponse = JsonConvert.DeserializeObject<ElementSummaryResponse>(httpResponseContentText, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
+
+                    return elementSummaryResponse;
+                }
+                catch(Exception ex)
+                {
+                    Console.WriteLine($"Failed to get element summary for {id}");
+                    Console.WriteLine(ex);
+
+                    return null;
+                }
             }
         }
 
