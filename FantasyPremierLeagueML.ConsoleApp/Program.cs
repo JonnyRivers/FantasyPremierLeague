@@ -15,7 +15,7 @@ namespace FantasyPremierLeagueML.ConsoleApp
     {
         private static void SetValueByAnyMeans(ModelInput input, PropertyInfo property, float value)
         {
-            if(property.PropertyType == typeof(float))
+            if (property.PropertyType == typeof(float))
             {
                 property.SetValue(input, value);
             }
@@ -48,7 +48,7 @@ namespace FantasyPremierLeagueML.ConsoleApp
             SetValueByAnyMeans(input, influenceProperty, float.Parse(elementHistory.Influence));
             SetValueByAnyMeans(input, creativityProperty, float.Parse(elementHistory.Creativity));
             SetValueByAnyMeans(input, threatProperty, float.Parse(elementHistory.Threat));
-            
+
             float atHome = elementHistory.WasHome ? 1 : 0;
             float difficulty = elementHistory.WasHome ? fixture.HomeTeamDifficulty : fixture.AwayTeamDifficulty;
 
