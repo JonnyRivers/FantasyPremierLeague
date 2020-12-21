@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using FantasyPremierLeague;
 using FantasyPremierLeagueML.Model;
@@ -12,6 +13,49 @@ namespace FantasyPremierLeagueML.ConsoleApp
 {
     class Program
     {
+        private static void SetValueByAnyMeans(ModelInput input, PropertyInfo property, float value)
+        {
+            if(property.PropertyType == typeof(float))
+            {
+                property.SetValue(input, value);
+            }
+            else if (property.PropertyType == typeof(string))
+            {
+                property.SetValue(input, value.ToString());
+            }
+        }
+
+        private static void AddPreviousGameweekToInput(ModelInput input, ElementHistory elementHistory, Fixture fixture, int currentEventId)
+        {
+            Type inputType = typeof(ModelInput);
+
+            if (elementHistory.Round >= currentEventId)
+                return;
+
+            int gameweekLessIndex = currentEventId - elementHistory.Round;
+            PropertyInfo isValidProperty = inputType.GetProperty($"Isvalidgw_less_{gameweekLessIndex}");
+            PropertyInfo minutesProperty = inputType.GetProperty($"Minutesgw_less_{gameweekLessIndex}");
+            PropertyInfo pointsProperty = inputType.GetProperty($"Pointsgw_less_{gameweekLessIndex}");
+            PropertyInfo influenceProperty = inputType.GetProperty($"Influencegw_less_{gameweekLessIndex}");
+            PropertyInfo creativityProperty = inputType.GetProperty($"Creativitygw_less_{gameweekLessIndex}");
+            PropertyInfo threatProperty = inputType.GetProperty($"Threatgw_less_{gameweekLessIndex}");
+            PropertyInfo atHomeProperty = inputType.GetProperty($"Athomegw_less_{gameweekLessIndex}");
+            PropertyInfo difficultyProperty = inputType.GetProperty($"Difficultygw_less_{gameweekLessIndex}");
+
+            SetValueByAnyMeans(input, isValidProperty, 1f);
+            SetValueByAnyMeans(input, minutesProperty, elementHistory.Minutes);
+            SetValueByAnyMeans(input, pointsProperty, elementHistory.TotalPoints);
+            SetValueByAnyMeans(input, influenceProperty, float.Parse(elementHistory.Influence));
+            SetValueByAnyMeans(input, creativityProperty, float.Parse(elementHistory.Creativity));
+            SetValueByAnyMeans(input, threatProperty, float.Parse(elementHistory.Threat));
+            
+            float atHome = elementHistory.WasHome ? 1 : 0;
+            float difficulty = elementHistory.WasHome ? fixture.HomeTeamDifficulty : fixture.AwayTeamDifficulty;
+
+            SetValueByAnyMeans(input, atHomeProperty, atHome);
+            SetValueByAnyMeans(input, difficultyProperty, difficulty);
+        }
+
         static async Task Main(string[] args)
         {
             var fplWebApiClient = new WebApiClient();
@@ -22,7 +66,7 @@ namespace FantasyPremierLeagueML.ConsoleApp
 
             using (StreamWriter writer = new StreamWriter(File.OpenWrite("predictions.csv")))
             {
-                writer.WriteLine("player,difficulty,home,points");
+                writer.WriteLine("event_id,player_id,player_name,difficulty,home,points");
 
                 int progress = 0;
                 int max = staticResponse.Elements.Count();
@@ -41,27 +85,43 @@ namespace FantasyPremierLeagueML.ConsoleApp
 
                     ModelInput fixtureData = new ModelInput()
                     {
+                        Isvalid2017 = (history2017 == null) ? "0" : "1",
                         Minutes2017 = (history2017 == null) ? 0 : history2017.Minutes,
                         Points2017 = (history2017 == null) ? 0 : history2017.TotalPoints,
-                        Isvalid2017 = (history2017 == null) ? "0" : "1",
+                        Influence2017 = (history2017 == null) ? 0 : float.Parse(history2017.Influence),
+                        Creativity2017 = (history2017 == null) ? 0 : float.Parse(history2017.Creativity),
+                        Threat2017 = (history2017 == null) ? 0 : float.Parse(history2017.Threat),
+                        Isvalid2018 = (history2018 == null) ? 0 : 1,
                         Minutes2018 = (history2018 == null) ? 0 : history2018.Minutes,
                         Points2018 = (history2018 == null) ? 0 : history2018.TotalPoints,
-                        Isvalid2018 = (history2018 == null) ? 0 : 1,
+                        Influence2018 = (history2018 == null) ? 0 : float.Parse(history2018.Influence),
+                        Creativity2018 = (history2018 == null) ? 0 : float.Parse(history2018.Creativity),
+                        Threat2018 = (history2018 == null) ? 0 : float.Parse(history2018.Threat),
+                        Isvalid2019 = (history2019 == null) ? 0 : 1,
                         Minutes2019 = (history2019 == null) ? 0 : history2019.Minutes,
                         Points2019 = (history2019 == null) ? 0 : history2019.TotalPoints,
-                        Isvalid2019 = (history2019 == null) ? 0 : 1,
+                        Influence2019 = (history2019 == null) ? 0 : float.Parse(history2019.Influence),
+                        Creativity2019 = (history2019 == null) ? 0 : float.Parse(history2019.Creativity),
+                        Threat2019 = (history2019 == null) ? 0 : float.Parse(history2019.Threat),
+
                         Diff = 2F,
                         Home = "0",
                     };
 
-                    foreach (ElementFixture fixture in elementResponse.Fixtures)
+                    foreach (ElementHistory history in elementResponse.History)
+                    {
+                        Fixture gwFixture = fixtures.Single(f => f.Id == history.FixtureId);
+                        AddPreviousGameweekToInput(fixtureData, history, gwFixture, staticResponse.CurrentEvent);
+                    }
+
+                    foreach (ElementFixture fixture in elementResponse.Fixtures.Take(5))
                     {
                         fixtureData.Diff = fixture.Difficulty;
                         fixtureData.Home = fixture.IsHome ? "1" : "0";
 
                         var predictionResult = ConsumeModel.Predict(fixtureData);
 
-                        writer.WriteLine($"{element.FirstName} {element.SecondName},{fixtureData.Diff},{fixtureData.Home},{predictionResult.Score}");
+                        writer.WriteLine($"{fixture.EventId},{element.Id},{element.FirstName} {element.SecondName},{fixtureData.Diff},{fixtureData.Home},{predictionResult.Score}");
                     }
                 }
             }
