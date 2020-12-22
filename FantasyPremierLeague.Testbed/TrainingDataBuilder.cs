@@ -143,10 +143,10 @@ namespace FantasyPremierLeague.Testbed
                 int numPreviousGameweeks = currentEvent.Id - 1;
 
                 string gameweeksHeader = BuildGameweeksHeader(currentEvent.Id);
-                writer.WriteLine($"{PreviousSeason.GetHeaderRow("2017")},{PreviousSeason.GetHeaderRow("2018")},{PreviousSeason.GetHeaderRow("2019")},{gameweeksHeader},position,diff,home,value,points");
+                writer.WriteLine($"{PreviousSeason.GetHeaderRow("2017")},{PreviousSeason.GetHeaderRow("2018")},{PreviousSeason.GetHeaderRow("2019")},{gameweeksHeader},playerid,teamid,position,selectedby,transfersin,transfersout,diff,home,value,points");
 
                 int progress = 0;
-                //IEnumerable<Element> elementsToProcess = staticResponse.Elements.Take(1);
+                //IEnumerable<Element> elementsToProcess = staticResponse.Elements.Take(50);
                 IEnumerable<Element> elementsToProcess = staticResponse.Elements;
                 int max = elementsToProcess.Count();
                 //foreach (Element element in staticResponse.Elements)
@@ -228,7 +228,7 @@ namespace FantasyPremierLeague.Testbed
                                 previousGameweeksBuilder.Append(",");
                         }
                         string gameweeksData = previousGameweeksBuilder.ToString();
-                        string otherData = $"{element.ElementType},{row.Difficulty},{row.AtHome},{row.Value:F1},{row.TotalPoints:F1}";
+                        string otherData = $"{element.Id},{element.Team},{element.ElementType},{element.SelectedByPercent:F1},{history.TransfersIn:F1},{history.TransfersOut:F1},{row.Difficulty},{row.AtHome},{row.Value:F1},{row.TotalPoints:F1}";
                         writer.WriteLine($"{seasonsData},{gameweeksData},{otherData}");
                     }
                 }
