@@ -58,7 +58,7 @@ namespace FantasyPremierLeague.Testbed
         {
             IEnumerable<Fixture> fixtures = await fplWebApiClient.GetFixturesAsync();
 
-            using (StreamWriter writer = new StreamWriter(File.OpenWrite(path)))
+            using (StreamWriter writer = new StreamWriter(File.Create(path)))
             {
                 writer.WriteLine("event_id,player_id,player_name,difficulty,home,points");
 

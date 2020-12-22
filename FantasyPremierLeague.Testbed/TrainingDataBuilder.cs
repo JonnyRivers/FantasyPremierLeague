@@ -137,7 +137,7 @@ namespace FantasyPremierLeague.Testbed
         {
             IEnumerable<Fixture> fixtures = await fplWebApiClient.GetFixturesAsync();
 
-            using (StreamWriter writer = new StreamWriter(File.OpenWrite(path)))
+            using (StreamWriter writer = new StreamWriter(File.Create(path)))
             {
                 Event currentEvent = staticResponse.Events.Single(e => e.IsCurrent);
                 int numPreviousGameweeks = currentEvent.Id - 1;
@@ -149,7 +149,6 @@ namespace FantasyPremierLeague.Testbed
                 //IEnumerable<Element> elementsToProcess = staticResponse.Elements.Take(50);
                 IEnumerable<Element> elementsToProcess = staticResponse.Elements;
                 int max = elementsToProcess.Count();
-                //foreach (Element element in staticResponse.Elements)
                 foreach (Element element in elementsToProcess)
                 {
                     Console.WriteLine($"Processing {++progress} of {max}");
