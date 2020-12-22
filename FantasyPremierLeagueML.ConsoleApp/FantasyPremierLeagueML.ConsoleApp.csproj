@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -6,10 +6,9 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.ML" Version="1.5.2" />
-    <PackageReference Include="Microsoft.ML.FastTree" Version="1.5.2" />
+    <PackageReference Include="Microsoft.ML.LightGBM" Version="1.5.2" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FantasyPremierLeague.Core\FantasyPremierLeague.Core.csproj" />
     <ProjectReference Include="..\FantasyPremierLeagueML.Model\FantasyPremierLeagueML.Model.csproj" />
   </ItemGroup>
 

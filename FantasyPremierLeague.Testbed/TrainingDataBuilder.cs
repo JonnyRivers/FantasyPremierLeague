@@ -20,7 +20,7 @@ namespace FantasyPremierLeague.Testbed
 
         public override string ToString()
         {
-            return $"{IsValid},{Minutes},{Points},{Influence},{Creativity},{Threat},{AtHome},{Difficulty}";
+            return $"{IsValid:F1},{Minutes:F1},{Points:F1},{Influence:F1},{Creativity:F1},{Threat:F1},{AtHome:F1},{Difficulty}";
         }
 
         public static string GetHeaderRow(string match)
@@ -40,7 +40,7 @@ namespace FantasyPremierLeague.Testbed
 
         public override string ToString()
         {
-            return $"{IsValid},{Minutes},{Points},{Influence},{Creativity},{Threat}";
+            return $"{IsValid:F1},{Minutes:F1},{Points:F1},{Influence:F1},{Creativity:F1},{Threat:F1}";
         }
 
         public static string GetHeaderRow(string season)
@@ -133,23 +133,22 @@ namespace FantasyPremierLeague.Testbed
             return headerBuilder.ToString();
         }
 
-        public async Task Build(WebApiClient fplWebApiClient, StaticResponse staticResponse)
+        public async Task Build(WebApiClient fplWebApiClient, StaticResponse staticResponse, string path)
         {
             IEnumerable<Fixture> fixtures = await fplWebApiClient.GetFixturesAsync();
 
-            using (StreamWriter writer = new StreamWriter(File.OpenWrite("data.csv")))
+            using (StreamWriter writer = new StreamWriter(File.Create(path)))
             {
                 Event currentEvent = staticResponse.Events.Single(e => e.IsCurrent);
                 int numPreviousGameweeks = currentEvent.Id - 1;
 
                 string gameweeksHeader = BuildGameweeksHeader(currentEvent.Id);
-                writer.WriteLine($"{PreviousSeason.GetHeaderRow("2017")},{PreviousSeason.GetHeaderRow("2018")},{PreviousSeason.GetHeaderRow("2019")},{gameweeksHeader},diff,home,value,points");
+                writer.WriteLine($"{PreviousSeason.GetHeaderRow("2017")},{PreviousSeason.GetHeaderRow("2018")},{PreviousSeason.GetHeaderRow("2019")},{gameweeksHeader},playerid,teamid,position,selectedby,transfersin,transfersout,diff,home,value,points");
 
                 int progress = 0;
                 //IEnumerable<Element> elementsToProcess = staticResponse.Elements.Take(50);
                 IEnumerable<Element> elementsToProcess = staticResponse.Elements;
                 int max = elementsToProcess.Count();
-                //foreach (Element element in staticResponse.Elements)
                 foreach (Element element in elementsToProcess)
                 {
                     Console.WriteLine($"Processing {++progress} of {max}");
@@ -228,7 +227,7 @@ namespace FantasyPremierLeague.Testbed
                                 previousGameweeksBuilder.Append(",");
                         }
                         string gameweeksData = previousGameweeksBuilder.ToString();
-                        string otherData = $"{row.Difficulty},{row.AtHome},{row.Value},{row.TotalPoints}";
+                        string otherData = $"{element.Id},{element.Team},{element.ElementType},{element.SelectedByPercent:F1},{history.TransfersIn:F1},{history.TransfersOut:F1},{row.Difficulty},{row.AtHome},{row.Value:F1},{row.TotalPoints:F1}";
                         writer.WriteLine($"{seasonsData},{gameweeksData},{otherData}");
                     }
                 }
