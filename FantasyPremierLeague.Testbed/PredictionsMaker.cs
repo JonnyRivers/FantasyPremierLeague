@@ -98,8 +98,15 @@ namespace FantasyPremierLeague.Testbed
                         Creativity2019 = (history2019 == null) ? 0 : float.Parse(history2019.Creativity),
                         Threat2019 = (history2019 == null) ? 0 : float.Parse(history2019.Threat),
 
+                        Playerid = element.Id,
+                        Teamid = element.Team,
+                        Position = element.ElementType,
+                        Selectedby = float.Parse(element.SelectedByPercent),
+                        Transfersin = element.TransfersInEvent,
+                        Transfersout = element.TransfersOutEvent,
                         Diff = 2F,
                         Home = "0",
+                        Value = element.NowCost
                     };
 
                     foreach (ElementHistory history in elementResponse.History)

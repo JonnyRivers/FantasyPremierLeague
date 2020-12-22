@@ -134,7 +134,12 @@ namespace FantasyPremierLeagueML.ConsoleApp
                 Threatgw_less_13 = 0F,
                 Athomegw_less_13 = 0F,
                 Difficultygw_less_13 = 0F,
+                Playerid = 1F,
+                Teamid = 1F,
                 Position = 3F,
+                Selectedby = 0.6F,
+                Transfersin = 0F,
+                Transfersout = 0F,
                 Diff = 2F,
                 Home = @"0",
                 Value = 70F,
@@ -266,7 +271,12 @@ namespace FantasyPremierLeagueML.ConsoleApp
             Console.WriteLine($"Threatgw_less_13: {sampleData.Threatgw_less_13}");
             Console.WriteLine($"Athomegw_less_13: {sampleData.Athomegw_less_13}");
             Console.WriteLine($"Difficultygw_less_13: {sampleData.Difficultygw_less_13}");
+            Console.WriteLine($"Playerid: {sampleData.Playerid}");
+            Console.WriteLine($"Teamid: {sampleData.Teamid}");
             Console.WriteLine($"Position: {sampleData.Position}");
+            Console.WriteLine($"Selectedby: {sampleData.Selectedby}");
+            Console.WriteLine($"Transfersin: {sampleData.Transfersin}");
+            Console.WriteLine($"Transfersout: {sampleData.Transfersout}");
             Console.WriteLine($"Diff: {sampleData.Diff}");
             Console.WriteLine($"Home: {sampleData.Home}");
             Console.WriteLine($"Value: {sampleData.Value}");

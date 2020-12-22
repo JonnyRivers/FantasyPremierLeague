@@ -494,23 +494,43 @@ namespace FantasyPremierLeagueML.Model
         public float Difficultygw_less_13 { get; set; }
 
 
-        [ColumnName("position"), LoadColumn(122)]
+        [ColumnName("playerid"), LoadColumn(122)]
+        public float Playerid { get; set; }
+
+
+        [ColumnName("teamid"), LoadColumn(123)]
+        public float Teamid { get; set; }
+
+
+        [ColumnName("position"), LoadColumn(124)]
         public float Position { get; set; }
 
 
-        [ColumnName("diff"), LoadColumn(123)]
+        [ColumnName("selectedby"), LoadColumn(125)]
+        public float Selectedby { get; set; }
+
+
+        [ColumnName("transfersin"), LoadColumn(126)]
+        public float Transfersin { get; set; }
+
+
+        [ColumnName("transfersout"), LoadColumn(127)]
+        public float Transfersout { get; set; }
+
+
+        [ColumnName("diff"), LoadColumn(128)]
         public float Diff { get; set; }
 
 
-        [ColumnName("home"), LoadColumn(124)]
+        [ColumnName("home"), LoadColumn(129)]
         public string Home { get; set; }
 
 
-        [ColumnName("value"), LoadColumn(125)]
+        [ColumnName("value"), LoadColumn(130)]
         public float Value { get; set; }
 
 
-        [ColumnName("points"), LoadColumn(126)]
+        [ColumnName("points"), LoadColumn(131)]
         public float Points { get; set; }
 
 
