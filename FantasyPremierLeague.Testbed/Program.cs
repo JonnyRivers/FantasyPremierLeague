@@ -115,11 +115,18 @@ namespace FantasyPremierLeague.Testbed
             Console.WriteLine($"Expected points: {expectedPoints:N2}");
         }
 
-        static async Task BuildTrainingDataAsync(WebApiClient fplWebApiClient, StaticResponse staticResponse)
+        static async Task BuildTrainingDataAsync(WebApiClient fplWebApiClient, StaticResponse staticResponse, string path)
         {
             var trainingDataBuilder = new TrainingDataBuilder();
 
-            await trainingDataBuilder.Build(fplWebApiClient, staticResponse);
+            await trainingDataBuilder.Build(fplWebApiClient, staticResponse, path);
+        }
+
+        static async Task MakePredictionsAsync(WebApiClient fplWebApiClient, StaticResponse staticResponse, string path)
+        {
+            var predictionsMaker = new PredictionsMaker();
+
+            await predictionsMaker.Make(fplWebApiClient, staticResponse, path);
         }
 
         static async Task Main(string[] args)
@@ -175,7 +182,13 @@ namespace FantasyPremierLeague.Testbed
             }
             else if (command == "build-training-data")
             {
-                await BuildTrainingDataAsync(fplWebApiClient, staticResponse);
+                string path = args[1];
+                await BuildTrainingDataAsync(fplWebApiClient, staticResponse, path);
+            }
+            else if (command == "make-predictions")
+            {
+                string path = args[1];
+                await MakePredictionsAsync(fplWebApiClient, staticResponse, path);
             }
         }
     }

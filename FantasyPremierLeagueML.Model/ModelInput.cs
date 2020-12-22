@@ -7,7 +7,7 @@ namespace FantasyPremierLeagueML.Model
     public class ModelInput
     {
         [ColumnName("isvalid2017"), LoadColumn(0)]
-        public string Isvalid2017 { get; set; }
+        public float Isvalid2017 { get; set; }
 
 
         [ColumnName("minutes2017"), LoadColumn(1)]
@@ -79,7 +79,7 @@ namespace FantasyPremierLeagueML.Model
 
 
         [ColumnName("isvalidgw-less-1"), LoadColumn(18)]
-        public string Isvalidgw_less_1 { get; set; }
+        public float Isvalidgw_less_1 { get; set; }
 
 
         [ColumnName("minutesgw-less-1"), LoadColumn(19)]
@@ -103,7 +103,7 @@ namespace FantasyPremierLeagueML.Model
 
 
         [ColumnName("athomegw-less-1"), LoadColumn(24)]
-        public string Athomegw_less_1 { get; set; }
+        public float Athomegw_less_1 { get; set; }
 
 
         [ColumnName("difficultygw-less-1"), LoadColumn(25)]
@@ -111,7 +111,7 @@ namespace FantasyPremierLeagueML.Model
 
 
         [ColumnName("isvalidgw-less-2"), LoadColumn(26)]
-        public string Isvalidgw_less_2 { get; set; }
+        public float Isvalidgw_less_2 { get; set; }
 
 
         [ColumnName("minutesgw-less-2"), LoadColumn(27)]
@@ -135,7 +135,7 @@ namespace FantasyPremierLeagueML.Model
 
 
         [ColumnName("athomegw-less-2"), LoadColumn(32)]
-        public string Athomegw_less_2 { get; set; }
+        public float Athomegw_less_2 { get; set; }
 
 
         [ColumnName("difficultygw-less-2"), LoadColumn(33)]
@@ -143,7 +143,7 @@ namespace FantasyPremierLeagueML.Model
 
 
         [ColumnName("isvalidgw-less-3"), LoadColumn(34)]
-        public string Isvalidgw_less_3 { get; set; }
+        public float Isvalidgw_less_3 { get; set; }
 
 
         [ColumnName("minutesgw-less-3"), LoadColumn(35)]
@@ -167,7 +167,7 @@ namespace FantasyPremierLeagueML.Model
 
 
         [ColumnName("athomegw-less-3"), LoadColumn(40)]
-        public string Athomegw_less_3 { get; set; }
+        public float Athomegw_less_3 { get; set; }
 
 
         [ColumnName("difficultygw-less-3"), LoadColumn(41)]
@@ -175,7 +175,7 @@ namespace FantasyPremierLeagueML.Model
 
 
         [ColumnName("isvalidgw-less-4"), LoadColumn(42)]
-        public string Isvalidgw_less_4 { get; set; }
+        public float Isvalidgw_less_4 { get; set; }
 
 
         [ColumnName("minutesgw-less-4"), LoadColumn(43)]
@@ -199,7 +199,7 @@ namespace FantasyPremierLeagueML.Model
 
 
         [ColumnName("athomegw-less-4"), LoadColumn(48)]
-        public string Athomegw_less_4 { get; set; }
+        public float Athomegw_less_4 { get; set; }
 
 
         [ColumnName("difficultygw-less-4"), LoadColumn(49)]
@@ -207,7 +207,7 @@ namespace FantasyPremierLeagueML.Model
 
 
         [ColumnName("isvalidgw-less-5"), LoadColumn(50)]
-        public string Isvalidgw_less_5 { get; set; }
+        public float Isvalidgw_less_5 { get; set; }
 
 
         [ColumnName("minutesgw-less-5"), LoadColumn(51)]
@@ -231,7 +231,7 @@ namespace FantasyPremierLeagueML.Model
 
 
         [ColumnName("athomegw-less-5"), LoadColumn(56)]
-        public string Athomegw_less_5 { get; set; }
+        public float Athomegw_less_5 { get; set; }
 
 
         [ColumnName("difficultygw-less-5"), LoadColumn(57)]
@@ -239,7 +239,7 @@ namespace FantasyPremierLeagueML.Model
 
 
         [ColumnName("isvalidgw-less-6"), LoadColumn(58)]
-        public string Isvalidgw_less_6 { get; set; }
+        public float Isvalidgw_less_6 { get; set; }
 
 
         [ColumnName("minutesgw-less-6"), LoadColumn(59)]
@@ -263,7 +263,7 @@ namespace FantasyPremierLeagueML.Model
 
 
         [ColumnName("athomegw-less-6"), LoadColumn(64)]
-        public string Athomegw_less_6 { get; set; }
+        public float Athomegw_less_6 { get; set; }
 
 
         [ColumnName("difficultygw-less-6"), LoadColumn(65)]
@@ -271,7 +271,7 @@ namespace FantasyPremierLeagueML.Model
 
 
         [ColumnName("isvalidgw-less-7"), LoadColumn(66)]
-        public string Isvalidgw_less_7 { get; set; }
+        public float Isvalidgw_less_7 { get; set; }
 
 
         [ColumnName("minutesgw-less-7"), LoadColumn(67)]
@@ -295,7 +295,7 @@ namespace FantasyPremierLeagueML.Model
 
 
         [ColumnName("athomegw-less-7"), LoadColumn(72)]
-        public string Athomegw_less_7 { get; set; }
+        public float Athomegw_less_7 { get; set; }
 
 
         [ColumnName("difficultygw-less-7"), LoadColumn(73)]
@@ -303,7 +303,7 @@ namespace FantasyPremierLeagueML.Model
 
 
         [ColumnName("isvalidgw-less-8"), LoadColumn(74)]
-        public string Isvalidgw_less_8 { get; set; }
+        public float Isvalidgw_less_8 { get; set; }
 
 
         [ColumnName("minutesgw-less-8"), LoadColumn(75)]
@@ -327,7 +327,7 @@ namespace FantasyPremierLeagueML.Model
 
 
         [ColumnName("athomegw-less-8"), LoadColumn(80)]
-        public string Athomegw_less_8 { get; set; }
+        public float Athomegw_less_8 { get; set; }
 
 
         [ColumnName("difficultygw-less-8"), LoadColumn(81)]
@@ -335,7 +335,7 @@ namespace FantasyPremierLeagueML.Model
 
 
         [ColumnName("isvalidgw-less-9"), LoadColumn(82)]
-        public string Isvalidgw_less_9 { get; set; }
+        public float Isvalidgw_less_9 { get; set; }
 
 
         [ColumnName("minutesgw-less-9"), LoadColumn(83)]
@@ -359,7 +359,7 @@ namespace FantasyPremierLeagueML.Model
 
 
         [ColumnName("athomegw-less-9"), LoadColumn(88)]
-        public string Athomegw_less_9 { get; set; }
+        public float Athomegw_less_9 { get; set; }
 
 
         [ColumnName("difficultygw-less-9"), LoadColumn(89)]
@@ -367,7 +367,7 @@ namespace FantasyPremierLeagueML.Model
 
 
         [ColumnName("isvalidgw-less-10"), LoadColumn(90)]
-        public string Isvalidgw_less_10 { get; set; }
+        public float Isvalidgw_less_10 { get; set; }
 
 
         [ColumnName("minutesgw-less-10"), LoadColumn(91)]
@@ -391,7 +391,7 @@ namespace FantasyPremierLeagueML.Model
 
 
         [ColumnName("athomegw-less-10"), LoadColumn(96)]
-        public string Athomegw_less_10 { get; set; }
+        public float Athomegw_less_10 { get; set; }
 
 
         [ColumnName("difficultygw-less-10"), LoadColumn(97)]
@@ -399,7 +399,7 @@ namespace FantasyPremierLeagueML.Model
 
 
         [ColumnName("isvalidgw-less-11"), LoadColumn(98)]
-        public string Isvalidgw_less_11 { get; set; }
+        public float Isvalidgw_less_11 { get; set; }
 
 
         [ColumnName("minutesgw-less-11"), LoadColumn(99)]
@@ -431,7 +431,7 @@ namespace FantasyPremierLeagueML.Model
 
 
         [ColumnName("isvalidgw-less-12"), LoadColumn(106)]
-        public string Isvalidgw_less_12 { get; set; }
+        public float Isvalidgw_less_12 { get; set; }
 
 
         [ColumnName("minutesgw-less-12"), LoadColumn(107)]
@@ -455,7 +455,7 @@ namespace FantasyPremierLeagueML.Model
 
 
         [ColumnName("athomegw-less-12"), LoadColumn(112)]
-        public string Athomegw_less_12 { get; set; }
+        public float Athomegw_less_12 { get; set; }
 
 
         [ColumnName("difficultygw-less-12"), LoadColumn(113)]
@@ -463,7 +463,7 @@ namespace FantasyPremierLeagueML.Model
 
 
         [ColumnName("isvalidgw-less-13"), LoadColumn(114)]
-        public string Isvalidgw_less_13 { get; set; }
+        public float Isvalidgw_less_13 { get; set; }
 
 
         [ColumnName("minutesgw-less-13"), LoadColumn(115)]
@@ -494,19 +494,23 @@ namespace FantasyPremierLeagueML.Model
         public float Difficultygw_less_13 { get; set; }
 
 
-        [ColumnName("diff"), LoadColumn(122)]
+        [ColumnName("position"), LoadColumn(122)]
+        public float Position { get; set; }
+
+
+        [ColumnName("diff"), LoadColumn(123)]
         public float Diff { get; set; }
 
 
-        [ColumnName("home"), LoadColumn(123)]
+        [ColumnName("home"), LoadColumn(124)]
         public string Home { get; set; }
 
 
-        [ColumnName("value"), LoadColumn(124)]
+        [ColumnName("value"), LoadColumn(125)]
         public float Value { get; set; }
 
 
-        [ColumnName("points"), LoadColumn(125)]
+        [ColumnName("points"), LoadColumn(126)]
         public float Points { get; set; }
 
 
