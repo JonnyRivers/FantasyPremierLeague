@@ -133,11 +133,11 @@ namespace FantasyPremierLeague.Testbed
             return headerBuilder.ToString();
         }
 
-        public async Task Build(WebApiClient fplWebApiClient, StaticResponse staticResponse, string path)
+        public async Task Build(WebApiClient fplWebApiClient, StaticResponse staticResponse, TrainingDataBuilderOptions options)
         {
             IEnumerable<Fixture> fixtures = await fplWebApiClient.GetFixturesAsync();
 
-            using (StreamWriter writer = new StreamWriter(File.Create(path)))
+            using (StreamWriter writer = new StreamWriter(File.Create(options.OutputPath)))
             {
                 Event currentEvent = staticResponse.Events.Single(e => e.IsCurrent);
                 int numPreviousGameweeks = currentEvent.Id - 1;
@@ -148,6 +148,7 @@ namespace FantasyPremierLeague.Testbed
                 int progress = 0;
                 //IEnumerable<Element> elementsToProcess = staticResponse.Elements.Take(50);
                 IEnumerable<Element> elementsToProcess = staticResponse.Elements;
+                elementsToProcess = elementsToProcess.Where(e => e.ElementType == options.ElementType);
                 int max = elementsToProcess.Count();
                 foreach (Element element in elementsToProcess)
                 {
@@ -184,6 +185,9 @@ namespace FantasyPremierLeague.Testbed
 
                     foreach (ElementHistory history in elementResponse.History)
                     {
+                        if (history.Round < options.MinimumNumGameweeks)
+                            continue;
+
                         TrainingDataRow row = new TrainingDataRow();
                         row.Season2017 = season2017;
                         row.Season2018 = season2018;
