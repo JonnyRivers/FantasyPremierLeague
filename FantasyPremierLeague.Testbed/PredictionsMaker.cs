@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Text;
 using System.Threading.Tasks;
 using FantasyPremierLeague;
 using FantasyPremierLeagueML.Model;
@@ -54,17 +55,26 @@ namespace FantasyPremierLeague.Testbed
             SetValueByAnyMeans(input, difficultyProperty, difficulty);
         }
 
-        public async Task Make(WebApiClient fplWebApiClient, StaticResponse staticResponse, string path)
+        public async Task Make(WebApiClient fplWebApiClient, StaticResponse staticResponse, PredictionsMakerOptions options)
         {
             IEnumerable<Fixture> fixtures = await fplWebApiClient.GetFixturesAsync();
 
-            using (StreamWriter writer = new StreamWriter(File.Create(path)))
+            using (StreamWriter writer = new StreamWriter(File.Create(options.OutputPath)))
             {
-                writer.WriteLine("event_id,player_id,player_name,difficulty,home,points");
+                var headerBuilder = new StringBuilder();
+                headerBuilder.Append("player_id,player_name");
+                for(int gameweekIndex = 0; gameweekIndex < options.NumPredictions; ++gameweekIndex)
+                {
+                    int gameweekNumber = staticResponse.CurrentEvent + gameweekIndex;
+                    headerBuilder.Append($",gw_{gameweekNumber}");
+                }
+                writer.WriteLine(headerBuilder.ToString());
 
                 int progress = 0;
-                int max = staticResponse.Elements.Count();
-                foreach (Element element in staticResponse.Elements)
+                IEnumerable<Element> elementsToProcess = staticResponse.Elements;
+                elementsToProcess = elementsToProcess.Where(e => e.ElementType == options.ElementType);
+                int max = elementsToProcess.Count();
+                foreach (Element element in elementsToProcess.Where(e => e.ElementType == options.ElementType))
                 {
                     Console.WriteLine($"Predicting {++progress} of {max}");
 
@@ -115,6 +125,9 @@ namespace FantasyPremierLeague.Testbed
                         AddPreviousGameweekToInput(fixtureData, history, gwFixture, staticResponse.CurrentEvent);
                     }
 
+                    var rowBuilder = new StringBuilder();
+                    rowBuilder.Append($"{element.Id},{element.FirstName} {element.SecondName}");
+
                     foreach (ElementFixture fixture in elementResponse.Fixtures.Take(5))
                     {
                         fixtureData.Diff = fixture.Difficulty;
@@ -122,8 +135,10 @@ namespace FantasyPremierLeague.Testbed
 
                         var predictionResult = ConsumeModel.Predict(fixtureData);
 
-                        writer.WriteLine($"{fixture.EventId},{element.Id},{element.FirstName} {element.SecondName},{fixtureData.Diff},{fixtureData.Home},{predictionResult.Score}");
+                        rowBuilder.Append($",{predictionResult.Score}");
                     }
+
+                    writer.WriteLine(rowBuilder.ToString());
                 }
             }
         }

@@ -494,43 +494,107 @@ namespace FantasyPremierLeagueML.Model
         public float Difficultygw_less_13 { get; set; }
 
 
-        [ColumnName("playerid"), LoadColumn(122)]
+        [ColumnName("isvalidgw-less-14"), LoadColumn(122)]
+        public float Isvalidgw_less_14 { get; set; }
+
+
+        [ColumnName("minutesgw-less-14"), LoadColumn(123)]
+        public float Minutesgw_less_14 { get; set; }
+
+
+        [ColumnName("pointsgw-less-14"), LoadColumn(124)]
+        public float Pointsgw_less_14 { get; set; }
+
+
+        [ColumnName("influencegw-less-14"), LoadColumn(125)]
+        public float Influencegw_less_14 { get; set; }
+
+
+        [ColumnName("creativitygw-less-14"), LoadColumn(126)]
+        public float Creativitygw_less_14 { get; set; }
+
+
+        [ColumnName("threatgw-less-14"), LoadColumn(127)]
+        public float Threatgw_less_14 { get; set; }
+
+
+        [ColumnName("athomegw-less-14"), LoadColumn(128)]
+        public float Athomegw_less_14 { get; set; }
+
+
+        [ColumnName("difficultygw-less-14"), LoadColumn(129)]
+        public float Difficultygw_less_14 { get; set; }
+
+
+        [ColumnName("isvalidgw-less-15"), LoadColumn(130)]
+        public float Isvalidgw_less_15 { get; set; }
+
+
+        [ColumnName("minutesgw-less-15"), LoadColumn(131)]
+        public float Minutesgw_less_15 { get; set; }
+
+
+        [ColumnName("pointsgw-less-15"), LoadColumn(132)]
+        public float Pointsgw_less_15 { get; set; }
+
+
+        [ColumnName("influencegw-less-15"), LoadColumn(133)]
+        public float Influencegw_less_15 { get; set; }
+
+
+        [ColumnName("creativitygw-less-15"), LoadColumn(134)]
+        public float Creativitygw_less_15 { get; set; }
+
+
+        [ColumnName("threatgw-less-15"), LoadColumn(135)]
+        public float Threatgw_less_15 { get; set; }
+
+
+        [ColumnName("athomegw-less-15"), LoadColumn(136)]
+        public float Athomegw_less_15 { get; set; }
+
+
+        [ColumnName("difficultygw-less-15"), LoadColumn(137)]
+        public float Difficultygw_less_15 { get; set; }
+
+
+        [ColumnName("playerid"), LoadColumn(138)]
         public float Playerid { get; set; }
 
 
-        [ColumnName("teamid"), LoadColumn(123)]
+        [ColumnName("teamid"), LoadColumn(139)]
         public float Teamid { get; set; }
 
 
-        [ColumnName("position"), LoadColumn(124)]
+        [ColumnName("position"), LoadColumn(140)]
         public float Position { get; set; }
 
 
-        [ColumnName("selectedby"), LoadColumn(125)]
+        [ColumnName("selectedby"), LoadColumn(141)]
         public float Selectedby { get; set; }
 
 
-        [ColumnName("transfersin"), LoadColumn(126)]
+        [ColumnName("transfersin"), LoadColumn(142)]
         public float Transfersin { get; set; }
 
 
-        [ColumnName("transfersout"), LoadColumn(127)]
+        [ColumnName("transfersout"), LoadColumn(143)]
         public float Transfersout { get; set; }
 
 
-        [ColumnName("diff"), LoadColumn(128)]
+        [ColumnName("diff"), LoadColumn(144)]
         public float Diff { get; set; }
 
 
-        [ColumnName("home"), LoadColumn(129)]
+        [ColumnName("home"), LoadColumn(145)]
         public string Home { get; set; }
 
 
-        [ColumnName("value"), LoadColumn(130)]
+        [ColumnName("value"), LoadColumn(146)]
         public float Value { get; set; }
 
 
-        [ColumnName("points"), LoadColumn(131)]
+        [ColumnName("points"), LoadColumn(147)]
         public float Points { get; set; }
 
 

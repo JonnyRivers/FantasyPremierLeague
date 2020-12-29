@@ -9,9 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FantasyPremierLeague.Testbe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FantasyPremierLeague.Web", "FantasyPremierLeague.Web\FantasyPremierLeague.Web.csproj", "{0710BAAA-EC5E-4B6B-B4E0-537C896702D0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FantasyPremierLeagueML.Model", "FantasyPremierLeagueML.Model\FantasyPremierLeagueML.Model.csproj", "{96983CB3-2BA3-4458-9B02-395B7852064D}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FantasyPremierLeagueML.ConsoleApp", "FantasyPremierLeagueML.ConsoleApp\FantasyPremierLeagueML.ConsoleApp.csproj", "{DE4144FD-9F33-4671-8DBF-3E28727916ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FantasyPremierLeagueML.Model", "FantasyPremierLeagueML.Model\FantasyPremierLeagueML.Model.csproj", "{8888AE2D-975F-4257-8990-BD1E9103A957}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,14 +29,10 @@ Global
 		{0710BAAA-EC5E-4B6B-B4E0-537C896702D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0710BAAA-EC5E-4B6B-B4E0-537C896702D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0710BAAA-EC5E-4B6B-B4E0-537C896702D0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{96983CB3-2BA3-4458-9B02-395B7852064D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{96983CB3-2BA3-4458-9B02-395B7852064D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{96983CB3-2BA3-4458-9B02-395B7852064D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{96983CB3-2BA3-4458-9B02-395B7852064D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DE4144FD-9F33-4671-8DBF-3E28727916ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DE4144FD-9F33-4671-8DBF-3E28727916ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DE4144FD-9F33-4671-8DBF-3E28727916ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DE4144FD-9F33-4671-8DBF-3E28727916ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8888AE2D-975F-4257-8990-BD1E9103A957}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8888AE2D-975F-4257-8990-BD1E9103A957}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8888AE2D-975F-4257-8990-BD1E9103A957}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8888AE2D-975F-4257-8990-BD1E9103A957}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

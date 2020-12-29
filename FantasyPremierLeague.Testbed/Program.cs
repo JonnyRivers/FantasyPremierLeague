@@ -122,11 +122,11 @@ namespace FantasyPremierLeague.Testbed
             await trainingDataBuilder.Build(fplWebApiClient, staticResponse, options);
         }
 
-        static async Task MakePredictionsAsync(WebApiClient fplWebApiClient, StaticResponse staticResponse, string path)
+        static async Task MakePredictionsAsync(WebApiClient fplWebApiClient, StaticResponse staticResponse, IEnumerable<string> args)
         {
             var predictionsMaker = new PredictionsMaker();
-
-            await predictionsMaker.Make(fplWebApiClient, staticResponse, path);
+            PredictionsMakerOptions options = PredictionsMakerOptions.FromArgs(args);
+            await predictionsMaker.Make(fplWebApiClient, staticResponse, options);
         }
 
         static async Task Main(string[] args)
@@ -183,13 +183,12 @@ namespace FantasyPremierLeague.Testbed
             else if (command == "build-training-data")
             {
                 IEnumerable<string> otherArgs = args.Skip(1);
-
                 await BuildTrainingDataAsync(fplWebApiClient, staticResponse, otherArgs);
             }
             else if (command == "make-predictions")
             {
-                string path = args[1];
-                await MakePredictionsAsync(fplWebApiClient, staticResponse, path);
+                IEnumerable<string> otherArgs = args.Skip(1);
+                await MakePredictionsAsync(fplWebApiClient, staticResponse, otherArgs);
             }
         }
     }

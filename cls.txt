@@ -1,0 +1,3 @@
+build-training-data path=C:\Users\jonny\OneDrive\Documents\GitHub\JonnyRivers\FantasyPremierLeague\Data\KeepersTrainingData.csv position=GK min-gameweeks=6
+
+make-predictions path=C:\Users\jonny\OneDrive\Documents\GitHub\JonnyRivers\FantasyPremierLeague\Data\KeepersPredictions.csv position=GK
