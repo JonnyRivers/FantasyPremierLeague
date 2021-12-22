@@ -18,8 +18,8 @@ namespace FantasyPremierLeague
         [JsonProperty("teams")]
         public IEnumerable<Team> Teams { get; set; }
 
-        //[JsonProperty("total_players")]
-        //public int TotalPlayers { get; set; }
+        [JsonProperty("total_players")]
+        public int TotalPlayers { get; set; }
 
         [JsonProperty("elements")]
         public IEnumerable<Element> Elements { get; set; }

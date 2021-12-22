@@ -122,5 +122,40 @@ namespace FantasyPremierLeague
         public int ElementType { get; set; }
         [JsonProperty("team")]
         public int Team { get; set; }
+
+        [JsonProperty("influence_rank")]
+        public int InfluenceRank { get; set; }
+        [JsonProperty("influence_rank_type")]
+        public int InfluenceRankType { get; set; }
+
+        [JsonProperty("creativity_rank")]
+        public int CreativityRank { get; set; }
+        [JsonProperty("creativity_rank_type")]
+        public int CreativityRankType { get; set; }
+
+        [JsonProperty("threat_rank")]
+        public int ThreatRank { get; set; }
+        [JsonProperty("threat_rank_type")]
+        public int ThreatRankType { get; set; }
+
+        [JsonProperty("ict_index_rank")]
+        public int IctIndexRank { get; set; }
+        [JsonProperty("ict_index_rank_type")]
+        public int IctIndexRankType { get; set; }
+
+        [JsonProperty("corners_and_indirect_freekicks_order")]
+        public int? CornersAndIndirectFreeKicksOrder { get; set; }
+        [JsonProperty("corners_and_indirect_freekicks_text")]
+        public string CornersAndIndirectFreeKicksText { get; set; }
+
+        [JsonProperty("direct_freekicks_order")]
+        public int? DirectFreeKicksOrder { get; set; }
+        [JsonProperty("direct_freekicks_text")]
+        public string DirectFreeKicksText { get; set; }
+
+        [JsonProperty("penalties_order")]
+        public int? PenaltiesOrder { get; set; }
+        [JsonProperty("penalties_text")]
+        public string PenaltiesText { get; set; }
     }
 }

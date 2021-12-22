@@ -39,10 +39,10 @@ namespace FantasyPremierLeague
         public bool LeagueKOFirstInsteadOfRandom { get; set; }
 
         [JsonProperty("cup_start_event_id")]
-        public int CupStartEventId { get; set; }
+        public int? CupStartEventId { get; set; }
 
         [JsonProperty("cup_stop_event_id")]
-        public int CupStopEventId { get; set; }
+        public int? CupStopEventId { get; set; }
 
         [JsonProperty("cup_qualifying_method")]
         public string CupQualifyingMethod { get; set; }

@@ -7,7 +7,7 @@ namespace FantasyPremierLeague.Web.Services
 {
     public class FplService
     {
-        private const int MyTeamId = 1231491;
+        private const int MyTeamId = 792290;
 
         private async Task<IEnumerable<Player>> GetPlayersByElementTypeAsync(ElementType elementType)
         {
