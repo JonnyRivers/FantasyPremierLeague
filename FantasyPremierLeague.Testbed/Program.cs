@@ -129,6 +129,27 @@ namespace FantasyPremierLeague.Testbed
             await predictionsMaker.Make(fplWebApiClient, staticResponse, path);
         }
 
+        static async Task PrintForwardFirstSeasonStatsAsync(WebApiClient fplWebApiClient, StaticResponse staticResponse)
+        {
+            foreach (Element element in staticResponse.Elements)
+            {
+                if (element.ElementType != (int)Position.Forward)
+                    continue;
+
+                ElementSummaryResponse elementResponse = await fplWebApiClient.GetElementSummaryAsync(element.Id);
+
+                if (elementResponse == null)
+                    continue;
+
+                ElementHistoryPast firstSeason = elementResponse.HistoryPast.FirstOrDefault();
+
+                if (firstSeason == null)
+                    continue;
+
+                Console.WriteLine($"{element.WebName} - £{firstSeason.StartCost / 10d}m - {firstSeason.Minutes} - {firstSeason.TotalPoints}");
+            }
+        }
+
         static async Task Main(string[] args)
         {
             var fplWebApiClient = new WebApiClient();
@@ -189,6 +210,15 @@ namespace FantasyPremierLeague.Testbed
             {
                 string path = args[1];
                 await MakePredictionsAsync(fplWebApiClient, staticResponse, path);
+            }
+            else
+            {
+                foreach(Team team in staticResponse.Teams.OrderByDescending(t => t.Strength))
+                {
+                    Console.WriteLine($"{team.Name} [{team.Strength}]");
+                }
+
+                await PrintForwardFirstSeasonStatsAsync(fplWebApiClient, staticResponse);
             }
         }
     }
