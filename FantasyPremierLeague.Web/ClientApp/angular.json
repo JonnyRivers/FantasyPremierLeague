@@ -125,7 +125,6 @@
       }
     }
   },
-  "defaultProject": "FantasyPremierLeague.Web",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",
