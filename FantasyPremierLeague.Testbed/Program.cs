@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -150,6 +151,19 @@ namespace FantasyPremierLeague.Testbed
             }
         }
 
+        static async Task DumpToCSV(WebApiClient fplWebApiClient, StaticResponse staticResponse, int elementType, string path)
+        {
+            using (StreamWriter writer = new StreamWriter(File.Create(path)))
+            {
+                writer.WriteLine("id,second_name,team,selected_by_percent,now_cost,minutes,total_points");
+                foreach (Element element in staticResponse.Elements.Where(e => e.ElementType == elementType))
+                {
+                    string teamName = staticResponse.Teams.Single(t => t.Id == element.Team).Name;
+                    writer.WriteLine($"{element.Id},{element.SecondName},{teamName},{element.SelectedByPercent},{element.NowCost},{element.Minutes},{element.TotalPoints}");
+                }
+            }
+        }
+
         static async Task Main(string[] args)
         {
             var fplWebApiClient = new WebApiClient();
@@ -211,6 +225,14 @@ namespace FantasyPremierLeague.Testbed
                 string path = args[1];
                 await MakePredictionsAsync(fplWebApiClient, staticResponse, path);
             }
+            else if (command == "to-csv")
+            {
+                string directory = args[1];
+                await DumpToCSV(fplWebApiClient, staticResponse, 1, Path.Combine(directory, "gkp.csv"));
+                await DumpToCSV(fplWebApiClient, staticResponse, 2, Path.Combine(directory, "def.csv"));
+                await DumpToCSV(fplWebApiClient, staticResponse, 3, Path.Combine(directory, "mid.csv"));
+                await DumpToCSV(fplWebApiClient, staticResponse, 4, Path.Combine(directory, "fwd.csv"));
+            }
             else
             {
                 foreach(Team team in staticResponse.Teams.OrderByDescending(t => t.Strength))
@@ -218,7 +240,21 @@ namespace FantasyPremierLeague.Testbed
                     Console.WriteLine($"{team.Name} [{team.Strength}]");
                 }
 
-                await PrintForwardFirstSeasonStatsAsync(fplWebApiClient, staticResponse);
+                foreach (Element element in staticResponse.Elements.OrderByDescending(t => t.EPNext))
+                {
+                    string teamName = staticResponse.Teams.Single(t => t.Id == element.Team).Name;
+                    string nowCost = $"£{element.NowCost / 10d}m";
+                    Console.WriteLine($"{element.WebName} ({teamName}) = {element.EPNext} (at {nowCost})");
+                }
+
+                foreach (Element element in staticResponse.Elements.OrderByDescending(t => Double.Parse(t.EPNext) / (double)t.NowCost))
+                {
+                    string teamName = staticResponse.Teams.Single(t => t.Id == element.Team).Name;
+                    string nowCost = $"£{element.NowCost / 10d}m";
+                    Console.WriteLine($"{element.WebName} ({teamName}) = {element.EPNext} (at {nowCost}) - value = ");
+                }
+
+                //await PrintForwardFirstSeasonStatsAsync(fplWebApiClient, staticResponse);
             }
         }
     }
