@@ -5,8 +5,8 @@
     <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.ML" Version="1.5.2" />
-    <PackageReference Include="Microsoft.ML.LightGBM" Version="1.5.2" />
+    <PackageReference Include="Microsoft.ML" Version="1.7.1" />
+    <PackageReference Include="Microsoft.ML.LightGBM" Version="1.7.1" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FantasyPremierLeagueML.Model\FantasyPremierLeagueML.Model.csproj" />
