@@ -151,7 +151,7 @@ namespace FantasyPremierLeague.Testbed
             }
         }
 
-        static async Task DumpToCSV(WebApiClient fplWebApiClient, StaticResponse staticResponse, int elementType, string path)
+        static void DumpToCSV(WebApiClient fplWebApiClient, StaticResponse staticResponse, int elementType, string path)
         {
             using (StreamWriter writer = new StreamWriter(File.Create(path)))
             {
@@ -228,10 +228,10 @@ namespace FantasyPremierLeague.Testbed
             else if (command == "to-csv")
             {
                 string directory = args[1];
-                await DumpToCSV(fplWebApiClient, staticResponse, 1, Path.Combine(directory, "gkp.csv"));
-                await DumpToCSV(fplWebApiClient, staticResponse, 2, Path.Combine(directory, "def.csv"));
-                await DumpToCSV(fplWebApiClient, staticResponse, 3, Path.Combine(directory, "mid.csv"));
-                await DumpToCSV(fplWebApiClient, staticResponse, 4, Path.Combine(directory, "fwd.csv"));
+                DumpToCSV(fplWebApiClient, staticResponse, 1, Path.Combine(directory, "gkp.csv"));
+                DumpToCSV(fplWebApiClient, staticResponse, 2, Path.Combine(directory, "def.csv"));
+                DumpToCSV(fplWebApiClient, staticResponse, 3, Path.Combine(directory, "mid.csv"));
+                DumpToCSV(fplWebApiClient, staticResponse, 4, Path.Combine(directory, "fwd.csv"));
             }
             else
             {
