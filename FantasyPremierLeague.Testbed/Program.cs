@@ -246,15 +246,6 @@ namespace FantasyPremierLeague.Testbed
                     string nowCost = $"£{element.NowCost / 10d}m";
                     Console.WriteLine($"{element.WebName} ({teamName}) = {element.EPNext} (at {nowCost})");
                 }
-
-                foreach (Element element in staticResponse.Elements.OrderByDescending(t => Double.Parse(t.EPNext) / (double)t.NowCost))
-                {
-                    string teamName = staticResponse.Teams.Single(t => t.Id == element.Team).Name;
-                    string nowCost = $"£{element.NowCost / 10d}m";
-                    Console.WriteLine($"{element.WebName} ({teamName}) = {element.EPNext} (at {nowCost}) - value = ");
-                }
-
-                //await PrintForwardFirstSeasonStatsAsync(fplWebApiClient, staticResponse);
             }
         }
     }
