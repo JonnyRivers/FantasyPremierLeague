@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace FantasyPremierLeague.Testbed
 {
@@ -240,11 +241,24 @@ namespace FantasyPremierLeague.Testbed
                     Console.WriteLine($"{team.Name} [{team.Strength}]");
                 }
 
-                foreach (Element element in staticResponse.Elements.OrderByDescending(t => t.EPNext))
+                Dictionary<int, string> elementShortNamesByType = new Dictionary<int, string>()
                 {
-                    string teamName = staticResponse.Teams.Single(t => t.Id == element.Team).Name;
-                    string nowCost = $"£{element.NowCost / 10d}m";
-                    Console.WriteLine($"{element.WebName} ({teamName}) = {element.EPNext} (at {nowCost})");
+                    { 1, "GKP" },
+                    { 2, "DEF" },
+                    { 3, "MID" },
+                    { 4, "FWD" },
+                };
+                IEnumerable<Element> playersByEPNext = staticResponse.Elements.OrderByDescending(t => double.Parse(t.EPNext));
+                for (int elementType = 1; elementType <= 4; elementType++)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine($"{elementShortNamesByType[elementType]}");
+                    foreach (Element element in playersByEPNext.Where(e => e.ElementType == elementType))
+                    {
+                        string teamName = staticResponse.Teams.Single(t => t.Id == element.Team).Name;
+                        string nowCost = $"£{element.NowCost / 10d}m";
+                        Console.WriteLine($"{element.WebName} ({teamName}) = {element.EPNext} (at {nowCost})");
+                    }
                 }
             }
         }

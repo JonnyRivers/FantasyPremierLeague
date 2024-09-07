@@ -157,5 +157,43 @@ namespace FantasyPremierLeague
         public int? PenaltiesOrder { get; set; }
         [JsonProperty("penalties_text")]
         public string PenaltiesText { get; set; }
+
+        // xG ,etc.
+        [JsonProperty("expected_goals")]
+        public string XG { get; set; }
+
+        [JsonProperty("expected_assists")]
+        public string XA { get; set; }
+
+        [JsonProperty("expected_goal_involvements")]
+        public string XGI { get; set; }
+
+        [JsonProperty("expected_goals_conceded")]
+        public string XGC { get; set; }
+
+        // per 90
+        [JsonProperty("expected_goals_per_90")]
+        public double XGPer90 { get; set; }
+
+        [JsonProperty("saves_per_90")]
+        public double SavesPer90 { get; set; }
+
+        [JsonProperty("expected_assists_per_90")]
+        public double XAPer90 { get; set; }
+
+        [JsonProperty("expected_goal_involvements_per_90")]
+        public double XGIPer90 { get; set; }
+
+        [JsonProperty("expected_goals_conceded_per_90")]
+        public double XGCPer90 { get; set; }
+
+        [JsonProperty("goals_conceded_per_90")]
+        public double GCPer90 { get; set; }
+
+        [JsonProperty("starts_per_90")]
+        public double StartsPer90 { get; set; }
+
+        [JsonProperty("clean_sheets_per_90")]
+        public double CleanSheetsPer90 { get; set; }
     }
 }
