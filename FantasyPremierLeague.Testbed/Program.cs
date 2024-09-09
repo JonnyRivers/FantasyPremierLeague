@@ -260,6 +260,18 @@ namespace FantasyPremierLeague.Testbed
                         Console.WriteLine($"{element.WebName} ({teamName}) = {element.EPNext} (at {nowCost})");
                     }
                 }
+                IEnumerable<Element> playersByEPNextValue = staticResponse.Elements.OrderByDescending(t => double.Parse(t.EPNext) / (double)t.NowCost);
+                for (int elementType = 1; elementType <= 4; elementType++)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine($"{elementShortNamesByType[elementType]}");
+                    foreach (Element element in playersByEPNextValue.Where(e => e.ElementType == elementType))
+                    {
+                        string teamName = staticResponse.Teams.Single(t => t.Id == element.Team).Name;
+                        string nowCost = $"£{element.NowCost / 10d}m";
+                        Console.WriteLine($"{element.WebName} ({teamName}) = {(double.Parse(element.EPNext) / (double)element.NowCost * 10):N2} (at {nowCost})");
+                    }
+                }
             }
         }
     }
